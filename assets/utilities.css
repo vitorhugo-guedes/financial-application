@@ -1,0 +1,10 @@
+.btn{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.container-flex{
+    display: flex;
+    justify-content: space-between;
+}

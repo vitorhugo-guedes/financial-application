@@ -1,5 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
 *, *::before, *::after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+:root{
+    --ff-lato: 'Lato';
+}
+body{
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+}
+main{
+    min-height: 100vh;
+    background-color: lightsalmon;
+}
+
+.sidebar-toggle{
+    z-index: 1;
+    position: fixed;
+    top: 1.5rem;
+    right: 2rem;
+    margin: 1em;
+}
+.sidebar{
+    z-index: 2;
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    width: clamp(15rem, 30vw, 20rem);
+    min-height: calc(100vh - 0rem);
+
+    background-color: aqua;
+}
+@media  screen and (max-width: 600px) {
+    .sidebar{
+        /* display: none; */
+        transform: translate(-100%);
+        transition: all 0.5s ease-in;
+        width: 100vw;
+    }
+}
+.sidebar-hidden{
+    /* display: flex; */
+    transform: translate(0);
+    transition: all 0.5s ease-in;
+}
+
+.transaction{
+    padding: 1em;
+    border-radius: 5px;
+    background-color: #FFf;
+    max-width: 100%;
+}
+.positive{
+    color: hsl(120, 100%, 40%);
+    font-weight: bold;
+}
+.negative{
+    color: hsl(0, 70%, 50%);
+    font-weight: bold;
+}
+.transaction > p {
+    width: 40%;
+    text-align: center;
+}
+
+.btn-decoration{
+    color: hsl(0, 70%, 50%);
+}
+@media screen and (min-width: 600px) {
+    .btn-decoration{
+        display: none;
+    }
+    .sidebar-toggle{
+        display: none;
+    }
 }
