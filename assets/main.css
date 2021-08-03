@@ -14,7 +14,10 @@ body{
     font-family: 'Lato', sans-serif;
 }
 main{
-    min-height: 100vh;
+    display: flex;
+    /* justify-content: space-between; */
+    /* max-width: 100%; */
+    /* min-height: 100vh; */
     background-color: lightsalmon;
 }
 
@@ -43,7 +46,7 @@ main{
         /* display: none; */
         transform: translate(-100%);
         transition: all 0.5s ease-in;
-        width: 100vw;
+        /* width: 100vw; */
     }
 }
 .sidebar-hidden{
@@ -81,4 +84,13 @@ main{
     .sidebar-toggle{
         display: none;
     }
+    
 }
+.hero{
+    width: 80%;
+    background-color: lightslategray;
+}
+/* .sidebar-sec{
+    width: 30%;
+    background-color: lightslategray;
+} */

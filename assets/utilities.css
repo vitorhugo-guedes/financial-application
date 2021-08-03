@@ -8,3 +8,9 @@
     display: flex;
     justify-content: space-between;
 }
+
+.grid{
+    display: grid;
+    place-content: center;
+
+}
