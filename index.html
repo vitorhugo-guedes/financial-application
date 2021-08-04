@@ -19,28 +19,57 @@
                     <button class="btn" id="closeBtn"><i class="fas fa-times fa-2x"></i></button>
                 </div>
 
-                <div id="transaction-place" id="transactions">
+                <ul id="transaction-place" id="transactions">
                     <!-- Template -->
-                    <blockquote class="transaction flex">
+                    <!-- <blockquote class="transaction flex">
                         <p>Salario</p>
                         <p>150000</p>
-                    </blockquote>
-                </div>
+                    </blockquote> -->
+                </ul>
             </aside>
         
         <section>
             <button class="btn sidebar-toggle" id="sidebarToggle">
                 <i class="fa fa-bars fa-2x"></i>
             </button>
-            <div class="flex-column">
-                <span>
-                    <!-- Mostrar -->
-                </span>
-                <div class="flex-column">
-                    <input type="text">
-                    <input type="text">
-                    <button class="btn">Botão</button>
+            <div class="hero flex-column">
+                <!-- Mostrar saldo -->
+                <div class="show-balance flex-column">
+
+                    <div>
+                        <h3>Saldo Atual</h3>
+                        <h2 class="saldo-total">R$ 0.00</h2>
+                    </div>
+
+                    <div class="card flex">
+
+                        <div class="recipe">
+                            <h3>Receitas</h3>
+                            <p>R$ 0.00</p>
+                        </div>
+                        <div class="expense">
+                            <h3>Despesas</h3>
+                            <p>R$ 0.00</p>
+                        </div>
+
+                    </div>
+
                 </div>
+                <!-- inserir transações -->
+                <form class="form-control flex-column">
+                    
+                    <h1>Adicionar Transação</h1>
+                    
+                    <fieldset class="transaction-add">
+                        <legend>Nome</legend>
+                        <input type="text" name="input" placeholder="Nome da transação">
+                        <legend class="mt">Valor</legend>
+                        <input type="text" name="input" placeholder="Valor da transação">
+                    </fieldset>
+
+                    <button class="btn-submit btn-outline">Adicionar</button>
+
+                </form>
             </div>
         </section>
 
