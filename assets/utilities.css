@@ -1,21 +1,25 @@
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
 .btn{
     cursor: pointer;
     border: none;
     outline: none;
     background: transparent;
 }
-.container-flex{
-    display: flex;
-    justify-content: space-between;
+.positive{
+    color: hsl(120, 100%, 40%);
+    font-weight: bold;
 }
-.container-grid{
-    max-width: 100vw;
-    display: grid;
-    grid-template-columns: 3fr;
-    grid-template-rows: 1fr;
-}
-
-.grid{
-    display: grid;
-    place-content: center;
+.negative{
+    color: hsl(0, 70%, 50%);
+    font-weight: bold;
 }

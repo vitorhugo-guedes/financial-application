@@ -11,39 +11,35 @@
 </head>
 <body>
 
-    <main class="container-grid">
-        
-        <section class="sidebar-sec">
+    <main class="grid" id="main">
             
-            <aside class="sidebar" id="sidebar">
-                <div class="sidebar-title container-flex">
+            <aside class="sidebar flex-column" id="sidebar">
+                <div class="sidebar-title flex">
                     <h1>Transações</h1>
-                    <button class="btn btn-decoration" id="closeBtn"><i class="fas fa-times fa-2x"></i></button>
+                    <button class="btn" id="closeBtn"><i class="fas fa-times fa-2x"></i></button>
                 </div>
 
                 <div id="transaction-place" id="transactions">
                     <!-- Template -->
-                    <!-- <blockquote class="transaction container-flex">
+                    <blockquote class="transaction flex">
                         <p>Salario</p>
                         <p>150000</p>
-                    </blockquote> -->
+                    </blockquote>
                 </div>
             </aside>
-            
-        </section>
         
-        <section  class="hero grid">
+        <section>
             <button class="btn sidebar-toggle" id="sidebarToggle">
                 <i class="fa fa-bars fa-2x"></i>
             </button>
-            <div>
+            <div class="flex-column">
                 <span>
                     <!-- Mostrar -->
                 </span>
-                <div>
+                <div class="flex-column">
                     <input type="text">
                     <input type="text">
-                    <button class="btn"></button>
+                    <button class="btn">Botão</button>
                 </div>
             </div>
         </section>
