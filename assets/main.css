@@ -5,13 +5,21 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+:root{
+    --clr-sidebar: #5B2A86;
+    --clr-btn: #6c397c;
+    --clr-recipe: #008000;
+    --clr-expense: #A4161A;
+}
+h1,h2,h3{
+    letter-spacing: 0.105rem;
+}
 body{
     font-family: 'Lato', sans-serif;
 }
 main{
     min-height: 100vh;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 .grid{
     display: grid;
@@ -22,14 +30,15 @@ main{
     grid-template-columns: 1fr 3fr;
 }
 .sidebar{
+    color: #FFf;
     overflow: hidden;
     gap: 2em;
     padding: 1em;
     grid-area: "aside";
 
     transform: translate(-100%);
-    /* transition: all 0.5s ease-out; */
-    background-color: lightsalmon;
+    
+    background-color: var(--clr-sidebar);
 }
 .show-sidebar{
     transform: translate(0);
@@ -41,52 +50,64 @@ section{
     justify-content: center;
     align-items: center;
     grid-area: "main";
-    background-color: lightseagreen;
+    /* background-color: lightseagreen; */
 }
 
 .sidebar-toggle{
     position: absolute;
-    top: 1em;
-    right: 2em;
+    top: 4em;
+    right: 6em;
 }
-
+.sidebar-toggle:hover{
+    transition: all 0.3s ease;
+    transform: scale(1.5);
+}
+.sidebar-toggle i{
+    color: var(--clr-sidebar);
+}
+#closeBtn{
+    color: #FFf;
+}
 .transaction{
     padding: 1em;
     border-radius: 5px;
+   
     background-color: #FFf;
     max-width: 100%;
 }
 
 .transaction > p {
+    font-weight: 700;
+    color: black;
     width: 40%;
     text-align: center;
 }
 
 .hero{
-    justify-content: space-evenly;
+    gap: 2em;
+    justify-content: center;
     align-items: center;
     min-height: 100%;
     max-width: 100%;
-    width: 30%;
+    width: 100%;
     padding: 1em;
-    background-color: violet;
+    /* background-color: violet; */
 }
 .show-balance, .form-control{
-    width: 80%;
+    width: 30%;
 }
 .show-balance{
-    gap: 1em;
+    gap: 2.5em;
     padding: 1em;
-    background-color: lightslategrey;
+    /* background-color: lightslategrey; */
 }
 .card{
-    position: relative;
     padding: 1em;
     width: 100%;
     gap: 1em;
     align-self: center;
 
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 5px;
     
     background-color: #FFf;
@@ -96,19 +117,36 @@ section{
     text-align: center;
 }
 .recipe{
+    color: var(--clr-recipe);
     border-right: solid 2px rgba(0, 0, 0, 0.3);
 }
-
+.expense{
+    color: var(--clr-expense);
+}
 .form-control{
     padding: 1em;
-    gap: 1em;
+    gap: 2.5em;
     background-color: white;
 }
 .transaction-add{
     border: none;
+    font-size: 1.15rem;
 }
 
 .btn-outline{
-    border: solid 2px black;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #000;
     background: transparent;
+    border: 2px solid var(--clr-btn);
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.btn-outline:hover{
+    transition: all 0.5s ease;
+    letter-spacing: 4px;
+    color: white;
+    background: var(--clr-btn);
 }
