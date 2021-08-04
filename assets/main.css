@@ -14,13 +14,14 @@ body{
     font-family: 'Lato', sans-serif;
 }
 main{
-    display: flex;
-    /* justify-content: space-between; */
-    /* max-width: 100%; */
-    /* min-height: 100vh; */
-    background-color: lightsalmon;
+    
+    min-height: calc(100vh - 0rem);
 }
-
+.sidebar-sec{
+    display: flex;
+    background-color: blueviolet;
+    
+}
 .sidebar-toggle{
     z-index: 1;
     position: fixed;
@@ -36,22 +37,21 @@ main{
     flex-direction: column;
     gap: 2em;
 
-    width: clamp(15rem, 30vw, 20rem);
-    min-height: calc(100vh - 0rem);
-
+    width: 100%;
     background-color: aqua;
+    transform: translate(-100%);
+    transition: all 0.5s ease-in;
 }
 @media  screen and (max-width: 600px) {
     .sidebar{
-        /* display: none; */
         transform: translate(-100%);
         transition: all 0.5s ease-in;
-        /* width: 100vw; */
     }
+   
 }
 .sidebar-hidden{
-    /* display: flex; */
     transform: translate(0);
+    /* width: 100vw; */
     transition: all 0.5s ease-in;
 }
 
@@ -77,20 +77,15 @@ main{
 .btn-decoration{
     color: hsl(0, 70%, 50%);
 }
-@media screen and (min-width: 600px) {
-    .btn-decoration{
+@media screen and (min-width: 601px) {
+    /* .btn-decoration{
         display: none;
     }
     .sidebar-toggle{
         display: none;
-    }
+    } */
     
 }
 .hero{
-    width: 80%;
     background-color: lightslategray;
 }
-/* .sidebar-sec{
-    width: 30%;
-    background-color: lightslategray;
-} */

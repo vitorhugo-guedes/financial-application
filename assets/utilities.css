@@ -8,9 +8,14 @@
     display: flex;
     justify-content: space-between;
 }
+.container-grid{
+    max-width: 100vw;
+    display: grid;
+    grid-template-columns: 3fr;
+    grid-template-rows: 1fr;
+}
 
 .grid{
     display: grid;
     place-content: center;
-
 }
