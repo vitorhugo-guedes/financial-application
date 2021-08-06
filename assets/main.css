@@ -17,9 +17,11 @@ h1,h2,h3{
 body{
     font-family: 'Lato', sans-serif;
 }
+
+
+/* Main */
 main{
     min-height: 100vh;
-    /* background-color: aqua; */
 }
 .grid{
     display: grid;
@@ -29,7 +31,23 @@ main{
 .grid-test{
     grid-template-columns: 1fr 3fr;
 }
+@media screen and (max-width: 600px){
+    .grid-test{
+        grid-template-columns: 3fr 0;
+    }
+    .grid{
+        overflow: hidden;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 900px){
+    .grid-test{
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+/* Aside */
 .sidebar{
+    z-index: 2;
     color: #FFf;
     overflow: hidden;
     gap: 2em;
@@ -37,41 +55,15 @@ main{
     grid-area: "aside";
 
     transform: translate(-100%);
-    
     background-color: var(--clr-sidebar);
 }
 .show-sidebar{
     transform: translate(0);
     transition: all 0.5s ease-in-out;
 }
-
-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-area: "main";
-    /* background-color: lightseagreen; */
-}
-
-.sidebar-toggle{
-    position: absolute;
-    top: 4em;
-    right: 6em;
-}
-.sidebar-toggle:hover{
-    transition: all 0.3s ease;
-    transform: scale(1.5);
-}
-.sidebar-toggle i{
-    color: var(--clr-sidebar);
-}
-#closeBtn{
-    color: #FFf;
-}
 .transaction{
     padding: 1em;
     border-radius: 5px;
-   
     background-color: #FFf;
     max-width: 100%;
 }
@@ -83,34 +75,35 @@ section{
     text-align: center;
 }
 
+/* Hero content */
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: "main";
+}
 .hero{
     gap: 2em;
     justify-content: center;
     align-items: center;
-    min-height: 100%;
-    max-width: 100%;
+    /* min-height: 100%; */
+    /* max-width: 100%; */
     width: 100%;
     padding: 1em;
-    /* background-color: violet; */
 }
 .show-balance, .form-control{
-    width: 30%;
-}
-.show-balance{
-    gap: 2.5em;
+    max-width: 20rem;
+    width: 100%;
     padding: 1em;
-    /* background-color: lightslategrey; */
+    gap: 2.5em;
 }
+
 .card{
     padding: 1em;
     width: 100%;
     gap: 1em;
-    align-self: center;
-
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 5px;
-    
-    background-color: #FFf;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .recipe, .expense{
     width: 100%;
@@ -123,16 +116,34 @@ section{
 .expense{
     color: var(--clr-expense);
 }
-.form-control{
-    padding: 1em;
-    gap: 2.5em;
-    background-color: white;
-}
+
+/* fieldset */
 .transaction-add{
     border: none;
     font-size: 1.15rem;
 }
 
+
+/* toggle btns */
+.sidebar-toggle{
+    z-index: 1;
+    position: absolute;
+    top: 4.5rem;
+    right: 3rem;
+}
+.sidebar-toggle:hover{
+    transition: all 0.3s ease;
+    transform: scale(1.5);
+}
+.sidebar-toggle i{
+    color: var(--clr-sidebar);
+}
+#closeBtn{
+    color: #FFf;
+}
+
+
+/* submit btn */
 .btn-outline{
     font-weight: bolder;
     letter-spacing: 1px;

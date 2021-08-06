@@ -2,7 +2,6 @@
 const closebtn = document.getElementById('closeBtn');
 const sidebar = document.getElementById('sidebar');
 const sidebarToggle = document.getElementById('sidebarToggle');
-
 const mainGrid = document.getElementById('main');
 
 sidebarToggle.addEventListener('click', () => {
@@ -11,7 +10,6 @@ sidebarToggle.addEventListener('click', () => {
 })
 
 closebtn.addEventListener('click', () =>{
-    const sidebarClass = sidebar.classList;
-    sidebarClass.remove('show-sidebar');
+    sidebar.classList.remove('show-sidebar');
     mainGrid.classList.toggle('grid-test');
 })
