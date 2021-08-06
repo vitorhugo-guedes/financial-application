@@ -10,8 +10,7 @@ sidebarToggle.addEventListener('click', () => {
 })
 
 closebtn.addEventListener('click', () =>{
-    const sidebarClass = sidebar.classList;
-    sidebarClass.remove('show-sidebar');
+    sidebar.classList.remove('show-sidebar');
     mainGrid.classList.toggle('grid-test');
 })
 
