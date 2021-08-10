@@ -15,3 +15,16 @@ closebtn.addEventListener('click', () =>{
 })
 
 // inserir transações na sidebar
+const nameTransaction = document.querySelector('#NameTransaction');
+const valueTransaction = document.querySelector('#ValueTransaction');
+
+const pushTransaction = (name, value) => {
+    const template = `<li class="transaction flex">
+        <p>hellou</p>
+        <p>alou</p>
+    </li>`
+    const li = document.createElement('li')
+    console.log(li)
+}
+
+pushTransaction()
