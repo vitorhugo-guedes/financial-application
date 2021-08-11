@@ -14,20 +14,21 @@ closebtn.addEventListener('click', () =>{
     mainGrid.classList.toggle('grid-test');
 })
 
-// inserir transações na sidebar
+// Sidebar Transactions
 const submit = document.querySelector('#btnSubmit')
-const nameValue = document.querySelector('#nameTransaction').value.trim()
-const value = document.querySelector('#valueTransaction').value.trim()
+const transactionsList = document.querySelector('#transaction-list')
 
 const localStorageTransactions = JSON.parse(localStorage.getItem('transactions'))
 let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : []
 
-const addTransaction = () => {
-    const transactionsList = document.querySelector('#transaction-list')
+const updateLocalStorage = () =>{
+    localStorage.setItem('transactions', JSON.stringify(transactions))
+}
 
+const addTransaction = transaction => {
     const template = `<li class="transaction flex">
-        <p>${nameValue}</p>
-        <p>${getTransaction().value}</p>
+        <p>${transaction.name}</p>
+        <p>${transaction.amount}</p>
     </li>`
 
     const li = document.createElement('li')
@@ -36,17 +37,34 @@ const addTransaction = () => {
 }
 
 const getBalance = () => {
-    const recipeDisplay = document.querySelector('.recipe')
-    const expenseDisplay = document.querySelector('.expense')
+    const recipeDisplay = document.querySelector('#recipeAmount')
+    const expenseDisplay = document.querySelector('#expenseAmount')
+    const balanceDisplay = document.querySelector('.saldo-total')
 
+    const transactionAmount = transactions.map(tr => tr.amount)
+
+    const recipe = transactionAmount.filter(onlyPlus => onlyPlus > 0).reduce((prevValue, current) => {return prevValue + current}, 0)
+    const expense = transactionAmount.filter(onlyMinus => onlyMinus < 0).reduce((prevValue, current) => {return prevValue + current}, 0)
+    const balance = transactionAmount.reduce((prevValue, current) => {return prevValue + current})
+
+    recipeDisplay.textContent = `R$ ${recipe.toFixed(2)}`
+    expenseDisplay.textContent = `R$ ${expense.toFixed(2)}`
+    balanceDisplay.textContent = `R$ ${balance.toFixed(2)}`
 }
+
 const pushTransactions = () =>{
+    transactionsList.innerHTML = ''
     transactions.forEach(addTransaction)
+    getBalance()
 }
+pushTransactions()
+
 submit.addEventListener('click', ()=> {
-    addTransaction()
-    const transaction = {id: 1, name: getTransaction().name, amount: getTransaction().value}
-    console.log(transaction)
+    const nameValue = document.querySelector('#nameTransaction').value
+    const transactionValue = document.querySelector('#valueTransaction').value
+    const transaction = {id: 1, name: nameValue, amount: Number(transactionValue)}
+
     transactions.push(transaction)
     pushTransactions()
+    updateLocalStorage()
 })
