@@ -16,23 +16,17 @@ closebtn.addEventListener('click', () =>{
 
 // inserir transações na sidebar
 const submit = document.querySelector('#btnSubmit')
+const nameValue = document.querySelector('#nameTransaction').value.trim()
+const value = document.querySelector('#valueTransaction').value.trim()
 
 const localStorageTransactions = JSON.parse(localStorage.getItem('transactions'))
 let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : []
 
-const getTransaction = () => {
-    const nameValue = document.querySelector('#nameTransaction').value
-    const value = document.querySelector('#valueTransaction').value
-    const transactionObj = {name: nameValue, value: value}
-
-    return transactionObj
-}
-
 const addTransaction = () => {
     const transactionsList = document.querySelector('#transaction-list')
-    
+
     const template = `<li class="transaction flex">
-        <p>${getTransaction().name}</p>
+        <p>${nameValue}</p>
         <p>${getTransaction().value}</p>
     </li>`
 
@@ -41,6 +35,18 @@ const addTransaction = () => {
     transactionsList.prepend(li)
 }
 
+const getBalance = () => {
+    const recipeDisplay = document.querySelector('.recipe')
+    const expenseDisplay = document.querySelector('.expense')
+
+}
+const pushTransactions = () =>{
+    transactions.forEach(addTransaction)
+}
 submit.addEventListener('click', ()=> {
     addTransaction()
+    const transaction = {id: 1, name: getTransaction().name, amount: getTransaction().value}
+    console.log(transaction)
+    transactions.push(transaction)
+    pushTransactions()
 })
