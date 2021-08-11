@@ -23,8 +23,8 @@ const pushTransaction = (name, value) => {
         <p>hellou</p>
         <p>alou</p>
     </li>`
-    const li = document.createElement('li')
-    console.log(li)
+    const transactionsList = document.querySelector('#transaction-place')
+    transactionsList.innerHTML = template
 }
 
 pushTransaction()
