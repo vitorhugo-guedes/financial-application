@@ -45,7 +45,7 @@ const getBalance = () => {
 
     const recipe = transactionAmount.filter(onlyPlus => onlyPlus > 0).reduce((prevValue, current) => {return prevValue + current}, 0)
     const expense = transactionAmount.filter(onlyMinus => onlyMinus < 0).reduce((prevValue, current) => {return prevValue + current}, 0)
-    const balance = transactionAmount.reduce((prevValue, current) => {return prevValue + current})
+    const balance = transactionAmount.reduce((prevValue, current) => {return prevValue + current}, 0)
 
     recipeDisplay.textContent = `R$ ${recipe.toFixed(2)}`
     expenseDisplay.textContent = `R$ ${expense.toFixed(2)}`
