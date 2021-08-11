@@ -45,12 +45,13 @@ main{
     }
 }
 
+
 /* Aside */
 .sidebar{
     z-index: 2;
     color: #FFf;
     overflow: hidden;
-    gap: 2em;
+    gap: 3rem;
     padding: 1em;
     grid-area: "aside";
 
@@ -74,6 +75,11 @@ main{
     width: 40%;
     text-align: center;
 }
+.transaction-list{
+    list-style: none;
+    gap: 1rem;
+}
+
 
 /* Hero content */
 section{
@@ -86,8 +92,6 @@ section{
     gap: 2em;
     justify-content: center;
     align-items: center;
-    /* min-height: 100%; */
-    /* max-width: 100%; */
     width: 100%;
     padding: 1em;
 }

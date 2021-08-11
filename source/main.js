@@ -15,16 +15,32 @@ closebtn.addEventListener('click', () =>{
 })
 
 // inserir transações na sidebar
-const nameTransaction = document.querySelector('#NameTransaction');
-const valueTransaction = document.querySelector('#ValueTransaction');
+const submit = document.querySelector('#btnSubmit')
 
-const pushTransaction = (name, value) => {
-    const template = `<li class="transaction flex">
-        <p>hellou</p>
-        <p>alou</p>
-    </li>`
-    const transactionsList = document.querySelector('#transaction-place')
-    transactionsList.innerHTML = template
+const localStorageTransactions = JSON.parse(localStorage.getItem('transactions'))
+let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : []
+
+const getTransaction = () => {
+    const nameValue = document.querySelector('#nameTransaction').value
+    const value = document.querySelector('#valueTransaction').value
+    const transactionObj = {name: nameValue, value: value}
+
+    return transactionObj
 }
 
-pushTransaction()
+const addTransaction = () => {
+    const transactionsList = document.querySelector('#transaction-list')
+    
+    const template = `<li class="transaction flex">
+        <p>${getTransaction().name}</p>
+        <p>${getTransaction().value}</p>
+    </li>`
+
+    const li = document.createElement('li')
+    li.innerHTML = template
+    transactionsList.prepend(li)
+}
+
+submit.addEventListener('click', ()=> {
+    addTransaction()
+})

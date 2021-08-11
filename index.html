@@ -19,9 +19,9 @@
                     <button class="btn" id="closeBtn"><i class="fas fa-times fa-2x"></i></button>
                 </div>
 
-                <ul id="transaction-place">
+                <ul id="transaction-list" class="transaction-list flex-column">
                     <!-- Template -->
-                    
+                   
                 </ul>
             </aside>
         
@@ -59,12 +59,12 @@
                     
                     <fieldset class="transaction-add">
                         <legend>Nome</legend>
-                        <input id="NameTransaction" class="transaction-input" type="text" name="input" placeholder="Nome da Transação">
+                        <input id="nameTransaction" class="transaction-input" type="text" name="input" placeholder="Nome da Transação">
                         <legend class="mt">Valor</legend>
-                        <input id="ValueTransaction" class="transaction-input" type="number" name="input" placeholder="Valor da Transação">
+                        <input id="valueTransaction" class="transaction-input" type="number" name="input" placeholder="Valor da Transação">
                     </fieldset>
 
-                    <button type="submit" class="btn-submit btn-outline">Adicionar</button>
+                    <button id="btnSubmit" type="button" class="btn-submit btn-outline">Adicionar</button>
 
                 </form>
             </div>
