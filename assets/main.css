@@ -121,6 +121,7 @@ section{
     color: var(--clr-expense);
 }
 
+
 /* fieldset */
 .transaction-add{
     border: none;
@@ -133,15 +134,40 @@ section{
     z-index: 1;
     position: absolute;
     top: 4.5rem;
-    right: 3rem;
+    right: 4rem;
 }
-.sidebar-toggle:hover{
+.sidebar-toggle:hover, .remove-data:hover, .remove-data2:hover{
     transition: all 0.3s ease;
     transform: scale(1.5);
 }
 .sidebar-toggle i{
     color: var(--clr-sidebar);
 }
+.remove-data{
+    z-index: 1;
+    position: absolute;
+    bottom: 2.5rem;
+    right: 3rem;
+}
+.remove-data i{
+    color: white;
+}
+.remove-data2{
+    z-index: 1;
+    position: absolute;
+    bottom: 4.5rem;
+    right: 4rem;
+}
+@media screen and (max-width: 768px){
+    .remove-data2{
+        display: none;
+    }
+}
+.remove-data2 i{
+    color: var(--clr-sidebar);
+}
+
+
 #closeBtn{
     color: #FFf;
 }
