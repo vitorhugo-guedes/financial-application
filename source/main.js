@@ -17,6 +17,7 @@ closebtn.addEventListener('click', () =>{
 // Sidebar Transactions
 const submit = document.querySelector('#btnSubmit')
 const transactionsList = document.querySelector('#transaction-list')
+const btnRemoveData = document.querySelectorAll('#btnRemoveData')
 
 const localStorageTransactions = JSON.parse(localStorage.getItem('transactions'))
 let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : []
@@ -25,15 +26,29 @@ const updateLocalStorage = () =>{
     localStorage.setItem('transactions', JSON.stringify(transactions))
 }
 
+const resetData = () =>{
+    localStorage.removeItem('transactions')
+    location.reload()
+}
+
+const invalidNum = () => {
+    alert('Valor digitado incorreto. Por favor, digite apenas números ou use somente uma vírgula')
+}
+
 const addTransaction = transaction => {
     const template = `<li class="transaction flex">
         <p>${transaction.name}</p>
-        <p>${transaction.amount}</p>
+        <p>${transaction.amount.toFixed(2)}</p>
     </li>`
 
     const li = document.createElement('li')
     li.innerHTML = template
-    transactionsList.prepend(li)
+
+    if(isNaN(transaction.amount)){
+        invalidNum()
+    }else{
+        transactionsList.prepend(li)
+    }
 }
 
 const getBalance = () => {
@@ -62,9 +77,20 @@ pushTransactions()
 submit.addEventListener('click', ()=> {
     const nameValue = document.querySelector('#nameTransaction').value
     const transactionValue = document.querySelector('#valueTransaction').value
-    const transaction = {id: 1, name: nameValue, amount: Number(transactionValue)}
+    const valueWithoutComma = transactionValue.replace(',', '.')
+    const transaction = {id: 1, name: nameValue, amount: Number(valueWithoutComma)}
 
-    transactions.push(transaction)
+    if(isNaN(valueWithoutComma)){
+        invalidNum()
+    }else{
+        transactions.push(transaction)
+    }
     pushTransactions()
     updateLocalStorage()
+})
+
+btnRemoveData.forEach(btn => {
+    btn.addEventListener('click', () => {
+        resetData()
+    })
 })
