@@ -22,6 +22,10 @@ const btnRemoveData = document.querySelectorAll('#btnRemoveData')
 const localStorageTransactions = JSON.parse(localStorage.getItem('transactions'))
 let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : []
 
+const randomID = () => {
+    return Math.floor(Math.random() * (1000 - 0 + 1)) + 0
+}
+
 const updateLocalStorage = () =>{
     localStorage.setItem('transactions', JSON.stringify(transactions))
 }
@@ -29,6 +33,12 @@ const updateLocalStorage = () =>{
 const resetData = () =>{
     localStorage.removeItem('transactions')
     location.reload()
+}
+
+const removeTransaction = transactionID => {
+    transactions = transactions.filter(tr => tr.id !== transactionID)
+    pushTransactions()
+    updateLocalStorage()
 }
 
 const invalidNum = () => {
@@ -39,6 +49,7 @@ const addTransaction = transaction => {
     const template = `<li class="transaction flex">
         <p>${transaction.name}</p>
         <p>${transaction.amount.toFixed(2)}</p>
+        <button onclick="removeTransaction(${transaction.id})" class="btn btn-hover remove-transaction"><i class="fa fa-times"></i></button>
     </li>`
 
     const li = document.createElement('li')
@@ -78,7 +89,7 @@ submit.addEventListener('click', ()=> {
     const nameValue = document.querySelector('#nameTransaction').value
     const transactionValue = document.querySelector('#valueTransaction').value
     const valueWithoutComma = transactionValue.replace(',', '.')
-    const transaction = {id: 1, name: nameValue, amount: Number(valueWithoutComma)}
+    const transaction = {id: randomID(), name: nameValue, amount: Number(valueWithoutComma)}
 
     if(isNaN(valueWithoutComma)){
         invalidNum()

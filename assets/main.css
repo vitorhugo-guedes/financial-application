@@ -134,12 +134,9 @@ section{
     z-index: 1;
     position: absolute;
     top: 4.5rem;
-    right: 4rem;
+    right: 3rem;
 }
-.sidebar-toggle:hover, .remove-data:hover, .remove-data2:hover{
-    transition: all 0.3s ease;
-    transform: scale(1.5);
-}
+
 .sidebar-toggle i{
     color: var(--clr-sidebar);
 }
@@ -152,22 +149,9 @@ section{
 .remove-data i{
     color: white;
 }
-.remove-data2{
-    z-index: 1;
-    position: absolute;
-    bottom: 4.5rem;
-    right: 4rem;
+.remove-transaction{
+    color: #A4161A;
 }
-@media screen and (max-width: 768px){
-    .remove-data2{
-        display: none;
-    }
-}
-.remove-data2 i{
-    color: var(--clr-sidebar);
-}
-
-
 #closeBtn{
     color: #FFf;
 }
