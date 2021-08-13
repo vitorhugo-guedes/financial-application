@@ -17,7 +17,7 @@ closebtn.addEventListener('click', () =>{
 // Sidebar Transactions
 const submit = document.querySelector('#btnSubmit')
 const transactionsList = document.querySelector('#transaction-list')
-const btnRemoveData = document.querySelectorAll('#btnRemoveData')
+const btnRemoveData = document.querySelector('#btnRemoveData')
 
 const localStorageTransactions = JSON.parse(localStorage.getItem('transactions'))
 let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : []
@@ -89,8 +89,6 @@ submit.addEventListener('click', ()=> {
     updateLocalStorage()
 })
 
-btnRemoveData.forEach(btn => {
-    btn.addEventListener('click', () => {
-        resetData()
-    })
+btnRemoveData.addEventListener('click', () => {
+    resetData()
 })
