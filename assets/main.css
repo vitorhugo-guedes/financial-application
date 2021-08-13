@@ -44,7 +44,9 @@ main{
         grid-template-columns: 1fr 2fr;
     }
 }
-
+.saldo-total{
+    color: var(--clr-btn);
+}
 
 /* Aside */
 .sidebar{
@@ -127,7 +129,15 @@ section{
     border: none;
     font-size: 1.15rem;
 }
-
+.input-alert{
+    display: none;
+    color: var(--clr-expense);
+    font-weight: bold;
+    font-size: 0.70rem;
+}
+.show-inputAlert{
+    display: inline;
+}
 
 /* toggle btns */
 .sidebar-toggle{
@@ -159,19 +169,23 @@ section{
 
 /* submit btn */
 .btn-outline{
+    border: none;
+
     font-weight: bolder;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #000;
-    background: transparent;
-    border: 2px solid var(--clr-btn);
-    border-radius: 0.5rem;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+    color: #fff;
+    background: var(--clr-btn);
+    border-radius: 0.3rem;
 }
 
 .btn-outline:hover{
-    transition: all 0.5s ease;
-    letter-spacing: 4px;
-    color: white;
-    background: var(--clr-btn);
+    letter-spacing: 3px;
+    background: #592f66;
+    transform: scale(1.1125);
+    transition: all 0.3s ease-in-out;
 }
+
+ 
+

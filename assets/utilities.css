@@ -51,5 +51,5 @@
 .transaction-input:focus{
     outline: none;
     transition: all 0.5s ease-out;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 3px solid #6c397c;
 }

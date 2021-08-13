@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Application</title>
+    <title>Controle Financeiro</title>
+    <link rel="shortcut icon" href="/assets/favicon_io/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/main.css">
     <link rel="stylesheet" href="/assets/utilities.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -38,8 +39,8 @@
                 <div class="show-balance flex-column">
 
                     <div>
-                        <h3>Saldo Atual</h3>
-                        <h2 class="saldo-total">R$ 0.00</h2>
+                        <h2>Saldo Atual</h2>
+                        <h1 class="saldo-total">R$ 0.00</h1>
                     </div>
 
                     <div class="card flex">
@@ -62,14 +63,18 @@
                     <h1>Adicionar Transação</h1>
                     
                     <fieldset class="transaction-add">
+
                         <legend>Nome</legend>
-                        <input id="nameTransaction" class="transaction-input" type="text" name="input" placeholder="Nome da Transação">
+                        <input autocomplete="off" id="nameTransaction" class="transaction-input" type="text" name="input" placeholder="Nome da Transação">
+                        <span id="inputNameAlert" class="input-alert">Preencha o campo</span>
+
                         <legend class="mt">Valor</legend>
-                        <input id="valueTransaction" class="transaction-input" type="text" name="input" placeholder="Valor da Transação">
+                        <input autocomplete="off" id="valueTransaction" class="transaction-input" type="text" name="input" placeholder="Valor da Transação" >
+                        <span id="inputValueAlert" class="input-alert">Preencha o campo</span>
+
                     </fieldset>
 
                     <button id="btnSubmit" type="button" class="btn-submit btn-outline">Adicionar</button>
-
                 </form>
             </div>
         </section>

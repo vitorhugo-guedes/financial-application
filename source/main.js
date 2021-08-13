@@ -26,6 +26,12 @@ const randomID = () => {
     return Math.floor(Math.random() * (1000 - 0 + 1)) + 0
 }
 
+const checkIsEmpty = (name, value) => {
+    if(name == ''|| value == ''){
+        return true
+    }
+}
+
 const updateLocalStorage = () =>{
     localStorage.setItem('transactions', JSON.stringify(transactions))
 }
@@ -41,22 +47,29 @@ const removeTransaction = transactionID => {
     updateLocalStorage()
 }
 
-const invalidNum = () => {
-    alert('Valor digitado incorreto. Por favor, digite apenas números ou use somente uma vírgula')
+const invalidInput = () => {
+    const inputName = document.querySelector('#nameTransaction')
+    const inputNameAlert = document.querySelector('#inputNameAlert')
+    inputNameAlert.classList.add('show-inputAlert')
+    inputName.focus()
+    
+    // alert('Valor digitado incorreto ou vazio. Por favor, digite apenas números ou use somente uma vírgula')
 }
 
 const addTransaction = transaction => {
     const template = `<li class="transaction flex">
         <p>${transaction.name}</p>
         <p>${transaction.amount.toFixed(2)}</p>
-        <button onclick="removeTransaction(${transaction.id})" class="btn btn-hover remove-transaction"><i class="fa fa-times"></i></button>
+        <button onclick="removeTransaction(${transaction.id})" class="btn btn-hover remove-transaction">
+            <i class="fa fa-times"></i>
+        </button>
     </li>`
 
     const li = document.createElement('li')
     li.innerHTML = template
 
     if(isNaN(transaction.amount)){
-        invalidNum()
+        invalidInput()
     }else{
         transactionsList.prepend(li)
     }
@@ -85,14 +98,14 @@ const pushTransactions = () =>{
 }
 pushTransactions()
 
-submit.addEventListener('click', ()=> {
+submit.addEventListener('click', () => {
     const nameValue = document.querySelector('#nameTransaction').value
     const transactionValue = document.querySelector('#valueTransaction').value
     const valueWithoutComma = transactionValue.replace(',', '.')
     const transaction = {id: randomID(), name: nameValue, amount: Number(valueWithoutComma)}
 
-    if(isNaN(valueWithoutComma)){
-        invalidNum()
+    if(isNaN(valueWithoutComma) || checkIsEmpty(nameValue, transactionValue)){
+        invalidInput()
     }else{
         transactions.push(transaction)
     }
