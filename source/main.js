@@ -67,9 +67,10 @@ const invalidInput = (name, value) => {
 }
 
 const addTransaction = transaction => {
+    const isPositive = transaction.amount > 0 ? 'positive' : 'negative'
     const template = `<li class="transaction flex">
-        <p>${transaction.name}</p>
-        <p>${transaction.amount.toFixed(2)}</p>
+        <p class="transaction-title">${transaction.name}</p>
+        <p class="${isPositive}">R$  ${transaction.amount.toFixed(2)}</p>
         <button onclick="removeTransaction(${transaction.id})" class="btn btn-hover remove-transaction">
             <i class="fa fa-times"></i>
         </button>

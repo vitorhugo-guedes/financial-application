@@ -70,10 +70,12 @@ main{
     background-color: #FFf;
     max-width: 100%;
 }
+.transaction-title{
+    color: black;
+}
 
 .transaction > p {
     font-weight: 700;
-    color: black;
     width: 40%;
     text-align: center;
 }
@@ -138,6 +140,7 @@ section{
 .show-inputAlert{
     display: inline;
 }
+
 
 
 /* toggle btns */

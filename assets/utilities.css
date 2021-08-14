@@ -33,7 +33,7 @@
 }
 
 .positive{
-    color: hsl(120, 100%, 40%);
+    color: #019c01;
     font-weight: bold;
 }
 .negative{
@@ -46,7 +46,7 @@
     width: 100%;
     margin-top: 0.75rem;
     border: none;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid rgb(108, 57, 124, 0.4);
 }
 .transaction-input:focus{
     outline: none;
