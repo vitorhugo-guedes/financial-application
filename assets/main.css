@@ -162,13 +162,13 @@ section{
     color: var(--clr-sidebar);
 }
 .remove-data{
-    z-index: 1;
+    z-index: 3;
     position: absolute;
     bottom: 2.5rem;
     right: 1.2rem;
 }
 .remove-data i{
-    color: white;
+    color: rgb(204, 203, 203);
 }
 .remove-transaction{
     color: #A4161A;

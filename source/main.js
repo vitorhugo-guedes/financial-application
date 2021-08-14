@@ -123,7 +123,7 @@ submit.addEventListener('click', () => {
         updateLocalStorage()
         removeAlert()
     }
-    
+
 })
 
 btnRemoveData.addEventListener('click', () => {
