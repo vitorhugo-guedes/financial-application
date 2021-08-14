@@ -16,7 +16,7 @@ h1,h2,h3{
     letter-spacing: 0.105rem;
 }
 body{
-    overflow: hidden;
+    /* overflow: hidden; */
     font-family: 'Lato', sans-serif;
 }
 
