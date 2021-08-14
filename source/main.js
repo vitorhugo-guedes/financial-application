@@ -60,12 +60,12 @@ const invalidInput = (name, value) => {
     }else if(checkIsEmpty(value) || isNaN(value)){
         inputValueAlert.classList.add('show-inputAlert')
         inputValue.focus()
-    }else{
-        inputNameAlert.classList.remove('show-inputAlert')
-        inputValueAlert.classList.remove('show-inputAlert')
     }
 }
-
+const removeAlert = () => {
+    inputNameAlert.classList.remove('show-inputAlert')
+    inputValueAlert.classList.remove('show-inputAlert')
+}
 const addTransaction = transaction => {
     const isPositive = transaction.amount > 0 ? 'positive' : 'negative'
     const template = `<li class="transaction flex">
@@ -115,13 +115,15 @@ submit.addEventListener('click', () => {
     const valueWithoutComma = transactionValue.replace(',', '.')
     const transaction = {id: randomID(), name: nameValue, amount: Number(valueWithoutComma)}
 
-    if(checkIsEmpty(nameValue) || checkIsEmpty(transactionValue) || isNaN(transactionValue)){
-        invalidInput(nameValue, transactionValue)
+    if(checkIsEmpty(nameValue) || checkIsEmpty(valueWithoutComma) || isNaN(valueWithoutComma)){
+        invalidInput(nameValue, valueWithoutComma)
     }else{
         transactions.push(transaction)
         pushTransactions()
         updateLocalStorage()
+        removeAlert()
     }
+    
 })
 
 btnRemoveData.addEventListener('click', () => {

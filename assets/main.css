@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 *, *::before, *::after{
     margin: 0;
@@ -15,6 +16,7 @@ h1,h2,h3{
     letter-spacing: 0.105rem;
 }
 body{
+    overflow: hidden;
     font-family: 'Lato', sans-serif;
 }
 
@@ -38,6 +40,7 @@ main{
     .grid{
         overflow: hidden;
     }
+
 }
 @media screen and (min-width: 600px) and (max-width: 900px){
     .grid-test{
@@ -54,7 +57,7 @@ main{
     color: #FFf;
     overflow: hidden;
     gap: 3rem;
-    padding: 1em;
+    padding: 1.2em 1.2em;
     grid-area: "aside";
 
     transform: translate(-100%);
@@ -63,6 +66,10 @@ main{
 .show-sidebar{
     transform: translate(0);
     transition: all 0.5s ease-in-out;
+}
+.sidebar-title{
+    font-weight: normal;
+    font-family: 'Roboto Slab', serif;
 }
 .transaction{
     padding: 1em;
@@ -158,7 +165,7 @@ section{
     z-index: 1;
     position: absolute;
     bottom: 2.5rem;
-    right: 3rem;
+    right: 1.2rem;
 }
 .remove-data i{
     color: white;
@@ -168,6 +175,11 @@ section{
 }
 #closeBtn{
     color: #FFf;
+}
+#closeBtn:hover{
+    transition: all 0.7s ease;
+    transform: rotateX(30deg);
+    transform: rotateY(160deg);
 }
 
 
