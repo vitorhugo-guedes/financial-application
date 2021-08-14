@@ -26,8 +26,8 @@ const randomID = () => {
     return Math.floor(Math.random() * (1000 - 0 + 1)) + 0
 }
 
-const checkIsEmpty = (name, value) => {
-    if(name == ''|| value == ''){
+const checkIsEmpty = (arg) => {
+    if(arg == '' || arg == null){
         return true
     }
 }
@@ -47,13 +47,23 @@ const removeTransaction = transactionID => {
     updateLocalStorage()
 }
 
-const invalidInput = () => {
+const invalidInput = (name, value) => {
     const inputName = document.querySelector('#nameTransaction')
+    const inputValue = document.querySelector('#valueTransaction')
+
     const inputNameAlert = document.querySelector('#inputNameAlert')
-    inputNameAlert.classList.add('show-inputAlert')
-    inputName.focus()
-    
-    // alert('Valor digitado incorreto ou vazio. Por favor, digite apenas números ou use somente uma vírgula')
+    const inputValueAlert = document.querySelector('#inputValueAlert')
+
+    if(checkIsEmpty(name)){
+        inputNameAlert.classList.add('show-inputAlert')
+        inputName.focus()
+    }else if(checkIsEmpty(value) || isNaN(value)){
+        inputValueAlert.classList.add('show-inputAlert')
+        inputValue.focus()
+    }else{
+        inputNameAlert.classList.remove('show-inputAlert')
+        inputValueAlert.classList.remove('show-inputAlert')
+    }
 }
 
 const addTransaction = transaction => {
@@ -68,8 +78,8 @@ const addTransaction = transaction => {
     const li = document.createElement('li')
     li.innerHTML = template
 
-    if(isNaN(transaction.amount)){
-        invalidInput()
+    if(checkIsEmpty(transaction.name) || checkIsEmpty(transaction.amount) || isNaN(transaction.amount)){
+        return ''
     }else{
         transactionsList.prepend(li)
     }
@@ -104,13 +114,13 @@ submit.addEventListener('click', () => {
     const valueWithoutComma = transactionValue.replace(',', '.')
     const transaction = {id: randomID(), name: nameValue, amount: Number(valueWithoutComma)}
 
-    if(isNaN(valueWithoutComma) || checkIsEmpty(nameValue, transactionValue)){
-        invalidInput()
+    if(checkIsEmpty(nameValue) || checkIsEmpty(transactionValue) || isNaN(transactionValue)){
+        invalidInput(nameValue, transactionValue)
     }else{
         transactions.push(transaction)
+        pushTransactions()
+        updateLocalStorage()
     }
-    pushTransactions()
-    updateLocalStorage()
 })
 
 btnRemoveData.addEventListener('click', () => {
