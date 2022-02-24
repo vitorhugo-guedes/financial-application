@@ -17,9 +17,10 @@ const updateLocalStorage = () =>{
     localStorage.setItem('transactions', JSON.stringify(transactions))
 }
 const removeTransaction = transactionID => {
-    transactions = transactions.filter(tr => tr.id !== transactionID)
-    pushTransactions()
-    updateLocalStorage()
+    transactions = transactions.filter(tr => tr.id !== transactionID);
+    pushTransactions();
+    updateLocalStorage();
+    btnRemoveDataPosition(transactions);
 }
 const invalidInput = (name, value) => {
     const inputName = document.querySelector('#nameTransaction')
@@ -81,10 +82,10 @@ const pushTransactions = () =>{
 }
 pushTransactions()
 
-submit.addEventListener('click', () => {
-    const nameValue = document.querySelector('#nameTransaction');
-    const transactionValue = document.querySelector('#valueTransaction');
+const nameValue = document.querySelector('#nameTransaction');
+const transactionValue = document.querySelector('#valueTransaction');
 
+submit.addEventListener('click', () => {
     const valueWithoutComma = transactionValue.value.replace(',', '.');
     const transaction = {id: randomID(), name: nameValue.value, amount: Number(valueWithoutComma)}
 
@@ -95,7 +96,7 @@ submit.addEventListener('click', () => {
         pushTransactions();
         updateLocalStorage();
         removeAlert();
-        BtnRemoveDataPosition(transactions);
+        btnRemoveDataPosition(transactions);
         
         nameValue.value = ''
         transactionValue.value = ''
@@ -114,11 +115,12 @@ btnRemoveData.addEventListener('click', () => {
     resetData();
 })
 
-function BtnRemoveDataPosition (localTransactions){
+function btnRemoveDataPosition (localTransactions){
     if(localTransactions.length < 9){
-        return
+        btnRemoveData.classList.add('remove-data-initial');
+        btnRemoveData.classList.remove('remove-data');
     }else{
-        btnRemoveData.classList.remove('remove-data-initial');
         btnRemoveData.classList.add('remove-data');
+        btnRemoveData.classList.remove('remove-data-initial');
     }
 }

@@ -30,9 +30,6 @@ h3{
 
 html, body{
     overflow: hidden;
-}
-
-body{
     font-family: 'Lato', sans-serif;
 }
 
@@ -73,6 +70,8 @@ main{
     
     transform: translate(-100%);
     background-color: var(--clr-sidebar);
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+
     overflow-y: scroll;
     grid-area: "aside";
 }
@@ -85,6 +84,10 @@ main{
     color: #FFf;
     font-weight: normal;
     font-family: 'Roboto Slab', serif;
+}
+
+::-webkit-scrollbar{
+    width: 0px;
 }
 
 /* Hero content */
@@ -162,6 +165,7 @@ main{
     align-self: flex-end;   
 }
 .remove-data-initial{
+    z-index: 3;
     position: absolute;
     bottom: 2.5rem;
     right: 1.2rem;
@@ -209,11 +213,10 @@ main{
     transition: all 0.3s ease-in-out;
 }
 
-.btn-outline:active {/*OnClick*/
+.btn-outline:active {
     -ms-transform: translateY(4px);
     -webkit-transform: translateY(4px);
-    transform: translateY(4px);/*Move down*/
-    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*Reduce Shadow*/
-    /* border-bottom: none; */
+    transform: translateY(4px);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
 }
 
