@@ -20,7 +20,7 @@
 <br>
 
 ## Objetivo
-Construir um controle financeiro online e rápido que possua uma boa usabilidade, tanto no computador, quanto em dispositivos mobile.
+Construir um controle financeiro online e rápido que possua uma boa usabilidade, tanto no computador, quanto em dispositivos mobile.  Inspirado em um vídeo do Roger Melo no youtube.
 
 <br>
 
