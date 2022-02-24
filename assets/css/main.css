@@ -8,18 +8,33 @@
 }
 :root{
     --clr-sidebar: #5B2A86;
-    --clr-btn: #6c397c;
+
     --clr-recipe: #008000;
     --clr-expense: #A4161A;
-}
-h1,h2,h3{
-    letter-spacing: 0.105rem;
-}
-body{
-    /* overflow: hidden; */
-    font-family: 'Lato', sans-serif;
+    --clr-balance: #6c397c;
+
+    --clr-input-alert: #A4161A;
+
+    --bg-btn: #6c397c;
+    --bg-btn--hover: #623370;
+    --borderbt-btn-clr: #562d63;
+
+    --clr-remove-data--icon: #fff; /*rgb(204, 203, 203)*/
 }
 
+h1,
+h2,
+h3{
+    letter-spacing: 0.105rem;
+}
+
+html, body{
+    overflow: hidden;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+}
 
 /* Main */
 main{
@@ -37,86 +52,69 @@ main{
     .grid-test{
         grid-template-columns: 3fr 0;
     }
-    .grid{
-        overflow: hidden;
-    }
-
 }
 @media screen and (min-width: 600px) and (max-width: 900px){
     .grid-test{
         grid-template-columns: 1fr 2fr;
     }
 }
-.saldo-total{
-    color: var(--clr-btn);
+
+.total-balance{
+    color: var(--clr-balance);
 }
 
 /* Aside */
 .sidebar{
     z-index: 2;
-    color: #FFf;
-    overflow: hidden;
+    
     gap: 3rem;
+    height: 100vh;
     padding: 1.2em 1.2em;
-    grid-area: "aside";
-
+    
     transform: translate(-100%);
     background-color: var(--clr-sidebar);
+    overflow-y: scroll;
+    grid-area: "aside";
 }
+
 .show-sidebar{
     transform: translate(0);
     transition: all 0.5s ease-in-out;
 }
 .sidebar-title{
+    color: #FFf;
     font-weight: normal;
     font-family: 'Roboto Slab', serif;
 }
-.transaction{
-    padding: 1em;
-    border-radius: 5px;
-    background-color: #FFf;
-    max-width: 100%;
-}
-.transaction-title{
-    color: black;
-}
-
-.transaction > p {
-    font-weight: 700;
-    width: 40%;
-    text-align: center;
-}
-.transaction-list{
-    list-style: none;
-    gap: 1rem;
-}
-
 
 /* Hero content */
-section{
+.main-content{
     display: flex;
     justify-content: center;
     align-items: center;
     grid-area: "main";
+
+    overflow: hidden;
 }
 .hero{
     gap: 2em;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     width: 100%;
     padding: 1em;
 }
 .show-balance, .form-control{
-    max-width: 20rem;
     width: 100%;
+    max-width: 20rem;
     padding: 1em;
     gap: 2.5em;
 }
 
 .card{
-    padding: 1em;
     width: 100%;
     gap: 1em;
+    padding: 1em;
+
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
@@ -140,15 +138,13 @@ section{
 }
 .input-alert{
     display: none;
-    color: var(--clr-expense);
     font-weight: bold;
     font-size: 0.70rem;
+    color: var(--clr-input-alert);
 }
 .show-inputAlert{
     display: inline;
 }
-
-
 
 /* toggle btns */
 .sidebar-toggle{
@@ -157,22 +153,24 @@ section{
     top: 4.5rem;
     right: 3rem;
 }
-
 .sidebar-toggle i{
     color: var(--clr-sidebar);
 }
 .remove-data{
     z-index: 3;
+    position: sticky;
+    align-self: flex-end;   
+}
+.remove-data-initial{
     position: absolute;
     bottom: 2.5rem;
     right: 1.2rem;
 }
-.remove-data i{
-    color: rgb(204, 203, 203);
+.remove-data i,
+.remove-data-initial i{
+    color: var(--clr-remove-data--icon);
 }
-.remove-transaction{
-    color: #A4161A;
-}
+
 #closeBtn{
     color: #FFf;
 }
@@ -184,6 +182,14 @@ section{
 
 
 /* submit btn */
+.btn-submit{
+    display: inline-block;
+    cursor: pointer;
+    font-size: 0.95rem;
+    padding: 0.75em 0em;
+    max-width: 30rem;
+    min-width: 10rem;
+}
 .btn-outline{
     border: none;
 
@@ -192,16 +198,22 @@ section{
     text-transform: uppercase;
 
     color: #fff;
-    background: var(--clr-btn);
+    background: var(--bg-btn);
+
     border-radius: 0.3rem;
+    border-bottom: solid 4px var(--borderbt-btn-clr);
 }
 
 .btn-outline:hover{
-    letter-spacing: 3px;
-    background: #592f66;
-    transform: scale(1.1125);
+    background: var(--bg-btn--hover);
     transition: all 0.3s ease-in-out;
 }
 
- 
+.btn-outline:active {/*OnClick*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*Move down*/
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*Reduce Shadow*/
+    /* border-bottom: none; */
+}
 

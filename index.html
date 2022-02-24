@@ -6,30 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle Financeiro</title>
     <link rel="shortcut icon" href="/assets/favicon_io/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/assets/main.css">
-    <link rel="stylesheet" href="/assets/utilities.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/utilities.css">
+    <link rel="stylesheet" href="/assets/css/transaction.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 
     <main class="grid" id="main">
             
-            <aside class="sidebar flex-column" id="sidebar">
-                <div class="sidebar-title flex">
-                    <h1>Transações</h1>
-                    <button class="btn" id="closeBtn"><i class="fas fa-times fa-2x"></i></button>
-                </div>
-
-                <ul id="transaction-list" class="transaction-list flex-column">
-                    <!-- Template -->
-                   
-                </ul>
-                <button class="btn remove-data btn-hover" id="btnRemoveData">
-                    <i class="fa fa-trash fa-2x"></i>
-                </button>
-            </aside>
+        <aside class="sidebar flex-column" id="sidebar">
+            <div class="sidebar-title flex">
+                <h1>Transações</h1>
+                <button class="btn" id="closeBtn"><i class="fas fa-times fa-2x"></i></button>
+            </div>
+            <ul id="transaction-list" class="transaction-list flex-column">
+                <!-- Template -->
+               
+            </ul>
+            <button class="btn remove-data-initial btn-hover" id="btnRemoveData">
+                <i class="fa fa-trash fa-2x"></i>
+            </button>
+        </aside>
         
-        <section>
+        <section class="main-content">
             <button class="btn sidebar-toggle btn-hover" id="sidebarToggle">
                 <i class="fa fa-bars fa-2x"></i>
             </button>
@@ -40,7 +40,7 @@
 
                     <div>
                         <h2>Saldo Atual</h2>
-                        <h1 class="saldo-total">R$ 0.00</h1>
+                        <h1 class="total-balance">R$ 0.00</h1>
                     </div>
 
                     <div class="card flex">
@@ -81,6 +81,7 @@
 
     </main>
 
-    <script src="/source/main.js" defer></script>
+    <script type="module" src="/source/main.js" defer></script>
+    <script type="module" src="/source/script.js" defer></script>
 </body>
 </html>

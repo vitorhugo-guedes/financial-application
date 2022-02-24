@@ -23,33 +23,19 @@
     transition: all 0.3s ease;
     transform: scale(1.5);
 }
-.btn-submit{
-    display: inline-block;
-    cursor: pointer;
-    font-size: 0.95rem;
-    padding: 0.75em 0em;
-    max-width: 30rem;
-    min-width: 10rem;
-}
 
-.positive{
-    color: #019c01;
-    font-weight: bold;
-}
-.negative{
-    color: hsl(0, 70%, 50%);
-    font-weight: bold;
-}
 
 .transaction-input{
-    font-size: 0.85rem;
     width: 100%;
     margin-top: 0.75rem;
+    
+    font-size: 0.85rem;
+
     border: none;
     border-bottom: 2px solid rgb(108, 57, 124, 0.4);
 }
 .transaction-input:focus{
     outline: none;
     transition: all 0.5s ease-out;
-    border-bottom: 3px solid #6c397c;
+    border-bottom: 2px solid #6c397c;
 }

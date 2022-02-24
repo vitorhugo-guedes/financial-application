@@ -15,6 +15,7 @@ closebtn.addEventListener('click', () =>{
 })
 
 // Sidebar Transactions
+import BtnRemoveDataPosition from "./script.js";
 const submit = document.querySelector('#btnSubmit')
 const transactionsList = document.querySelector('#transaction-list')
 const btnRemoveData = document.querySelector('#btnRemoveData')
@@ -89,7 +90,7 @@ const addTransaction = transaction => {
 const getBalance = () => {
     const recipeDisplay = document.querySelector('#recipeAmount')
     const expenseDisplay = document.querySelector('#expenseAmount')
-    const balanceDisplay = document.querySelector('.saldo-total')
+    const balanceDisplay = document.querySelector('.total-balance')
 
     const transactionAmount = transactions.map(tr => tr.amount)
 
@@ -122,6 +123,7 @@ submit.addEventListener('click', () => {
         pushTransactions()
         updateLocalStorage()
         removeAlert()
+        BtnRemoveDataPosition(btnRemoveData, transactions);
     }
 
 })
