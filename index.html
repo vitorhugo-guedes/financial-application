@@ -12,17 +12,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-
+    
     <main class="grid" id="main">
-            
+        
         <aside class="sidebar flex-column" id="sidebar">
+            
             <div class="sidebar-title flex">
                 <h1>Transações</h1>
                 <button class="btn" id="closeBtn"><i class="fas fa-times fa-2x"></i></button>
             </div>
             <ul id="transaction-list" class="transaction-list flex-column">
                 <!-- Template -->
-               
+                
             </ul>
             <button class="btn remove-data-initial btn-hover" id="btnRemoveData">
                 <i class="fa fa-trash fa-2x"></i>
@@ -30,6 +31,7 @@
         </aside>
         
         <section class="main-content">
+            
             <button class="btn sidebar-toggle btn-hover" id="sidebarToggle">
                 <i class="fa fa-bars fa-2x"></i>
             </button>
@@ -37,7 +39,7 @@
             <div class="hero flex-column">
                 <!-- Mostrar saldo -->
                 <div class="show-balance flex-column">
-
+                    
                     <div>
                         <h2>Saldo Atual</h2>
                         <h1 class="total-balance">R$ 0.00</h1>
@@ -76,8 +78,13 @@
 
                     <button id="btnSubmit" type="button" class="btn-submit btn-outline">Adicionar</button>
                 </form>
+                <div id="notification" class="notification flex">
+                    <p>Transação concluída</p><i class="fa fa-check"></i>
+                </div>
+
             </div>
         </section>
+
 
     </main>
 

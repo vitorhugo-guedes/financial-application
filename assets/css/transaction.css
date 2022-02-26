@@ -2,6 +2,10 @@
     --clr-remove--icon: #A4161A;
     --clr-amount-positive: #019c01;
     --clr-amount-negative: hsl(0, 70%, 50%);
+    
+    --clr-notification: #019c01;
+    --bg-notification: #F8F9FA;
+    --border-notification: #D1D1D1;
 }
 
 .transaction-list{
@@ -15,7 +19,7 @@
     max-width: 100%;
     border-radius: 5px;
 
-    background-color: #FFf;
+    background-color: #F8F9FA;
     transition: all ease-in 0.2s;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -40,4 +44,34 @@
 }
 .negative{
     color: var(--clr-amount-negative);
+}
+
+/* Transaction Notification */
+.notification{
+    z-index: 5;
+    gap: 7px;
+    
+    height: 60px;
+    width: 200px;
+    padding: 1rem;
+
+    align-self: flex-end;
+    position: absolute;
+    top: 45%;
+    right: 0px;
+
+    transform: scaleX(0);
+    transform-origin: right;
+    
+    color: var(--clr-notification);
+    background-color: var(--bg-notification);
+    border-radius: 5px;
+    border: 1px solid var(--border-notification);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.show-notification{
+    right: 10px;
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: all 0.3s;
 }

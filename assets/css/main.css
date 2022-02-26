@@ -36,6 +36,7 @@ html, body{
 /* Main */
 main{
     min-height: 100vh;
+    /* background-color: #008000; */
 }
 .grid{
     display: grid;
@@ -97,20 +98,21 @@ main{
     align-items: center;
     grid-area: "main";
 
-    overflow: hidden;
 }
 .hero{
     gap: 2em;
+    width: 100%;
+    padding: 1em;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    padding: 1em;
 }
+
 .show-balance, .form-control{
+    z-index: 1;
+    gap: 2.5em;
+    padding: 1em;
     width: 100%;
     max-width: 20rem;
-    padding: 1em;
-    gap: 2.5em;
 }
 
 .card{
@@ -151,7 +153,7 @@ main{
 
 /* toggle btns */
 .sidebar-toggle{
-    z-index: 1;
+    z-index: 3;
     position: absolute;
     top: 4.5rem;
     right: 3rem;
@@ -219,4 +221,5 @@ main{
     transform: translateY(4px);
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
 }
+
 

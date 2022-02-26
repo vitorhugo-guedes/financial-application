@@ -1,9 +1,16 @@
-// Sidebar Transactions
-const submit = document.querySelector('#btnSubmit');
 const transactionsList = document.querySelector('#transaction-list');
+const notification = document.querySelector('#notification');
 
+// Verify localStorage
 const localStorageTransactions = JSON.parse(localStorage.getItem('transactions'))
 let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : []
+
+const notifyTransaction = () => {
+    notification.classList.add('show-notification');
+    setTimeout(()=>{
+        notification.classList.remove('show-notification');
+    }, 1200);
+}
 
 const randomID = () => {
     return Math.floor(Math.random() * (1000 - 0 + 1)) + 0
@@ -82,6 +89,9 @@ const pushTransactions = () =>{
 }
 pushTransactions()
 
+// Sidebar Transactions
+const submit = document.querySelector('#btnSubmit');
+
 const nameValue = document.querySelector('#nameTransaction');
 const transactionValue = document.querySelector('#valueTransaction');
 
@@ -95,9 +105,11 @@ submit.addEventListener('click', () => {
         transactions.push(transaction);
         pushTransactions();
         updateLocalStorage();
+        
         removeAlert();
         btnRemoveDataPosition(transactions);
-        
+        notifyTransaction();
+
         nameValue.value = ''
         transactionValue.value = ''
     }
