@@ -9,6 +9,7 @@
 :root{
     --clr-sidebar: #5B2A86;
 
+    --bg-card-balance: #F8F9FA;
     --clr-recipe: #008000;
     --clr-expense: #A4161A;
     --clr-balance: #6c397c;
@@ -121,6 +122,7 @@ main{
     padding: 1em;
 
     border-radius: 5px;
+    background-color: var(--bg-card-balance);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .recipe, .expense{

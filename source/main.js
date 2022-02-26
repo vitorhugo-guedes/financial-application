@@ -127,6 +127,7 @@ btnRemoveData.addEventListener('click', () => {
     resetData();
 })
 
+
 function btnRemoveDataPosition (localTransactions){
     if(localTransactions.length < 9){
         btnRemoveData.classList.add('remove-data-initial');
