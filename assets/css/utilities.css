@@ -7,9 +7,6 @@
     display: flex;
     flex-direction: column;
 }
-.mt{
-    margin-top: 1em;
-}
 
 /* btn general class */
 .btn{
@@ -37,4 +34,15 @@
     outline: none;
     transition: all 0.5s ease-out;
     border-bottom: 2px solid #6c397c;
+}
+
+/* input validation alert */
+.input-alert{
+    display: none;
+    font-weight: bold;
+    font-size: 0.70rem;
+    color: var(--clr-input-alert);
+}
+.show-inputAlert{
+    display: inline-block;
 }

@@ -6,12 +6,12 @@ const sidebarToggle = document.getElementById('sidebarToggle');
 
 sidebarToggle.addEventListener('click', () => {
     sidebar.classList.toggle('show-sidebar');
-    mainGrid.classList.toggle('grid-test');
+    mainGrid.classList.toggle('grid-open');
 })
 
 closebtn.addEventListener('click', () =>{
     sidebar.classList.remove('show-sidebar');
-    mainGrid.classList.toggle('grid-test');
+    mainGrid.classList.toggle('grid-open');
 })
 
 

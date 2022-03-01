@@ -20,7 +20,7 @@
     --bg-btn--hover: #623370;
     --borderbt-btn-clr: #562d63;
 
-    --clr-remove-data--icon: #fff; /*rgb(204, 203, 203)*/
+    --clr-white--icon: #fff; /*rgb(204, 203, 203)*/
 }
 
 h1,
@@ -37,29 +37,24 @@ html, body{
 /* Main */
 main{
     min-height: 100vh;
-    /* background-color: #008000; */
 }
 .grid{
     display: grid;
-    grid-template-columns: 0 3fr;
+    grid-template-columns: 0 1fr;
     grid-template-areas: "aside main";
 }
-.grid-test{
+.grid-open{
     grid-template-columns: 1fr 3fr;
 }
 @media screen and (max-width: 600px){
-    .grid-test{
+    .grid-open{
         grid-template-columns: 3fr 0;
     }
 }
 @media screen and (min-width: 600px) and (max-width: 900px){
-    .grid-test{
+    .grid-open{
         grid-template-columns: 1fr 2fr;
     }
-}
-
-.total-balance{
-    color: var(--clr-balance);
 }
 
 /* Aside */
@@ -68,12 +63,12 @@ main{
     
     gap: 3rem;
     height: 100vh;
-    padding: 1.2em 1.2em;
+    padding: 1.2em;
     
     transform: translate(-100%);
     background-color: var(--clr-sidebar);
     box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-
+    
     overflow-y: scroll;
     grid-area: "aside";
 }
@@ -82,7 +77,7 @@ main{
     transform: translate(0);
     transition: all 0.5s ease-in-out;
 }
-.sidebar-title{
+.sidebar-header{
     color: #FFf;
     font-weight: normal;
     font-family: 'Roboto Slab', serif;
@@ -94,13 +89,10 @@ main{
 
 /* Hero content */
 .main-content{
-    display: flex;
     justify-content: center;
-    align-items: center;
     grid-area: "main";
-
 }
-.hero{
+.container-hero{
     gap: 2em;
     width: 100%;
     padding: 1em;
@@ -108,14 +100,20 @@ main{
     justify-content: center;
 }
 
-.show-balance, .form-control{
+.display-balance, .form-control{
     z-index: 1;
     gap: 2.5em;
     padding: 1em;
     width: 100%;
     max-width: 20rem;
 }
-
+.display-balance h1{
+    color: var(--clr-balance);
+}
+.form-control legend{
+    font-size: 1.35rem;
+    font-weight: bold;
+}
 .card{
     width: 100%;
     gap: 1em;
@@ -124,6 +122,9 @@ main{
     border-radius: 5px;
     background-color: var(--bg-card-balance);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.card h2{
+    font-size: 1.10rem;
 }
 .recipe, .expense{
     width: 100%;
@@ -136,21 +137,16 @@ main{
 .expense{
     color: var(--clr-expense);
 }
-
-
 /* fieldset */
-.transaction-add{
+.form-field{
     border: none;
     font-size: 1.15rem;
 }
-.input-alert{
-    display: none;
-    font-weight: bold;
-    font-size: 0.70rem;
-    color: var(--clr-input-alert);
+.form-field label{
+    display: block;
 }
-.show-inputAlert{
-    display: inline;
+.form-field label:nth-of-type(2){
+    margin-top: 1.30rem;
 }
 
 /* toggle btns */
@@ -160,6 +156,14 @@ main{
     top: 4.5rem;
     right: 3rem;
 }
+
+@media screen and (min-width: 800px) {
+    .sidebar-toggle{
+        top: 4.5rem;
+        right: 7rem;
+    }
+}
+
 .sidebar-toggle i{
     color: var(--clr-sidebar);
 }
@@ -176,11 +180,11 @@ main{
 }
 .remove-data i,
 .remove-data-initial i{
-    color: var(--clr-remove-data--icon);
+    color: var(--clr-white--icon);
 }
 
 #closeBtn{
-    color: #FFf;
+    color: var(--clr-white--icon);
 }
 #closeBtn:hover{
     transition: all 0.7s ease;

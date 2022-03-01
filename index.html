@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Controle financeiro para suas compras do dia a dia">
     <title>Controle Financeiro</title>
     <link rel="shortcut icon" href="/assets/favicon_io/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/main.css">
@@ -13,76 +14,77 @@
 </head>
 <body>
     
-    <main class="grid" id="main">
+    <main id="main" class="grid">
         
-        <aside class="sidebar flex-column" id="sidebar">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar flex-column">
             
-            <div class="sidebar-title flex">
+            <div class="sidebar-header flex">
                 <h1>Transações</h1>
-                <button class="btn" id="closeBtn"><i class="fas fa-times fa-2x"></i></button>
+                <button role="button" aria-label="Close sidebar" id="closeBtn" class="btn"><i class="fas fa-times fa-2x"></i></button>
             </div>
-            <ul id="transaction-list" class="transaction-list flex-column">
-                <!-- Template -->
-                
-            </ul>
-            <button class="btn remove-data-initial btn-hover" id="btnRemoveData">
+
+            <ul id="transaction-list" class="transaction-list flex-column"></ul>
+
+            <button role="button" aria-label="Remove all data" type="button" id="btnRemoveData" class="btn remove-data-initial btn-hover">
                 <i class="fa fa-trash fa-2x"></i>
             </button>
+
         </aside>
         
-        <section class="main-content">
+        <!-- Centralized content -->
+        <section class="main-content flex">
             
-            <button class="btn sidebar-toggle btn-hover" id="sidebarToggle">
+            <button tabindex="4" role="button" aria-label="Toggle sidebar" type="button" id="sidebarToggle" class="btn sidebar-toggle btn-hover">
                 <i class="fa fa-bars fa-2x"></i>
             </button>
             
-            <div class="hero flex-column">
+            <section class="container-hero flex-column">
+
                 <!-- Mostrar saldo -->
-                <div class="show-balance flex-column">
-                    
+                <div class="display-balance flex-column">
                     <div>
                         <h2>Saldo Atual</h2>
-                        <h1 class="total-balance">R$ 0.00</h1>
+                        <h1 id="total-balance">R$ 0.00</h1>
                     </div>
 
                     <div class="card flex">
-
                         <div class="recipe">
-                            <h3>Receitas</h3>
+                            <h2>Receitas</h2>
                             <p id="recipeAmount">R$ 0.00</p>
                         </div>
                         <div class="expense">
-                            <h3>Despesas</h3>
+                            <h2>Despesas</h2>
                             <p id="expenseAmount">R$ 0.00</p>
                         </div>
-
                     </div>
-
                 </div>
+
                 <!-- inserir transações -->
                 <form class="form-control flex-column">
-                    
-                    <h1>Adicionar Transação</h1>
-                    
-                    <fieldset class="transaction-add">
 
-                        <legend>Nome</legend>
-                        <input autocomplete="off" id="nameTransaction" class="transaction-input" type="text" name="input" placeholder="Nome da Transação">
+                    <legend>Adicionar Transação</legend>
+                    
+                    <fieldset class="form-field">
+                        <label>
+                            Nome <input tabindex="1" autocomplete="off" id="nameTransaction" class="transaction-input" type="text" placeholder="Compras do mês">
+                        </label>
                         <span id="inputNameAlert" class="input-alert">Preencha o campo</span>
 
-                        <legend class="mt">Valor</legend>
-                        <input autocomplete="off" id="valueTransaction" class="transaction-input" type="text" name="input" placeholder="Valor da Transação" >
+                        <label>
+                            Valor <input tabindex="2" autocomplete="off" id="valueTransaction" class="transaction-input" type="text" placeholder="100,00" >
+                        </label>
                         <span id="inputValueAlert" class="input-alert">Preencha o campo</span>
-
                     </fieldset>
 
-                    <button id="btnSubmit" type="button" class="btn-submit btn-outline">Adicionar</button>
+                    <button tabindex="3" id="btnSubmit" type="button" class="btn-submit btn-outline">Adicionar</button>
                 </form>
+
                 <div id="notification" class="notification flex">
                     <p>Transação concluída</p><i class="fa fa-check"></i>
                 </div>
 
-            </div>
+            </section>
         </section>
 
 

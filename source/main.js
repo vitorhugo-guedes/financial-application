@@ -50,15 +50,15 @@ const removeAlert = () => {
 }
 const addTransaction = transaction => {
     const isPositive = transaction.amount > 0 ? 'positive' : 'negative'
-    const template = `<li class="transaction flex">
-        <p class="transaction-title">${transaction.name}</p>
+    const template = `<p class="transaction-title">${transaction.name}</p>
         <p class="${isPositive}">R$  ${transaction.amount.toFixed(2)}</p>
-        <button onclick="removeTransaction(${transaction.id})" class="btn btn-hover remove-transaction">
+        <button role="button" aria-label="Remove transaction" onclick="removeTransaction(${transaction.id})" class="btn btn-hover remove-transaction">
             <i class="fa fa-times"></i>
         </button>
-    </li>`
-
-    const li = document.createElement('li')
+        `
+    const li = document.createElement('li');
+    li.classList.add('transaction');
+    li.classList.add('flex');
     li.innerHTML = template
 
     if(checkIsEmpty(transaction.name) || checkIsEmpty(transaction.amount) || isNaN(transaction.amount)){
@@ -68,9 +68,9 @@ const addTransaction = transaction => {
     }
 }
 const getBalance = () => {
-    const recipeDisplay = document.querySelector('#recipeAmount')
-    const expenseDisplay = document.querySelector('#expenseAmount')
-    const balanceDisplay = document.querySelector('.total-balance')
+    const recipeDisplay = document.querySelector('#recipeAmount');
+    const expenseDisplay = document.querySelector('#expenseAmount');
+    const balanceDisplay = document.querySelector('#total-balance');
 
     const transactionAmount = transactions.map(tr => tr.amount)
 
@@ -122,13 +122,12 @@ const resetData = () =>{
 }
 
 // Remove all transactions
-const btnRemoveData = document.querySelector('#btnRemoveData')
+const btnRemoveData = document.querySelector('#btnRemoveData');
 btnRemoveData.addEventListener('click', () => {
     resetData();
 })
 
-
-function btnRemoveDataPosition (localTransactions){
+const btnRemoveDataPosition = (localTransactions)=>{
     if(localTransactions.length < 9){
         btnRemoveData.classList.add('remove-data-initial');
         btnRemoveData.classList.remove('remove-data');
@@ -137,3 +136,4 @@ function btnRemoveDataPosition (localTransactions){
         btnRemoveData.classList.remove('remove-data-initial');
     }
 }
+btnRemoveDataPosition(transactions);
