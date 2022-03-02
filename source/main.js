@@ -11,7 +11,6 @@ const notifyTransaction = () => {
         notification.classList.remove('show-notification');
     }, 1200);
 }
-
 const randomID = () => {
     return Math.floor(Math.random() * (1000 - 0 + 1)) + 0
 }
@@ -91,7 +90,6 @@ pushTransactions()
 
 // Sidebar Transactions
 const submit = document.querySelector('#btnSubmit');
-
 const nameValue = document.querySelector('#nameTransaction');
 const transactionValue = document.querySelector('#valueTransaction');
 
@@ -121,13 +119,12 @@ const resetData = () =>{
     location.reload();
 }
 
-// Remove all transactions
+// Remove all transactions icon
 const btnRemoveData = document.querySelector('#btnRemoveData');
 btnRemoveData.addEventListener('click', () => {
     resetData();
 })
-
-const btnRemoveDataPosition = (localTransactions)=>{
+const btnRemoveDataPosition = localTransactions =>{
     if(localTransactions.length < 9){
         btnRemoveData.classList.add('remove-data-initial');
         btnRemoveData.classList.remove('remove-data');
