@@ -51,7 +51,7 @@ main{
 
 /* Sidebar */
 .sidebar{
-    z-index: 2;
+    z-index: 4;
     
     gap: 3rem;
     height: 100vh;

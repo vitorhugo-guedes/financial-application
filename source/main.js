@@ -49,9 +49,13 @@ const removeAlert = () => {
 }
 const addTransaction = transaction => {
     const isPositive = transaction.amount > 0 ? 'positive' : 'negative'
-    const template = `<p class="transaction-title">${transaction.name}</p>
+    const template = `
+        <p class="transaction-title">${transaction.name}</p>
         <p class="${isPositive}">R$  ${transaction.amount.toFixed(2)}</p>
-        <button role="button" aria-label="Remove transaction" onclick="removeTransaction(${transaction.id})" class="btn btn-hover remove-transaction">
+        <button role="button" aria-label="Remove transaction" 
+                onclick="removeTransaction(${transaction.id})" 
+                class="btn btn-hover remove-transaction"
+        >
             <i class="fa fa-times"></i>
         </button>
         `

@@ -10,20 +10,31 @@
 .sidebar-toggle{
     z-index: 3;
     position: absolute;
-    top: 4.5rem;
+    top: 4rem;
     right: 3rem;
 }
-
+.sidebar-toggle::before{
+    z-index: 3;
+    position: absolute;
+    content: '5';
+    right: -10px;
+}
+.sidebar-toggle i{
+    color: var(--clr-sidebar);
+}
+@media screen and (max-width: 600px) {
+    .sidebar-toggle{
+        top: 4rem;
+        right: 2.3rem;
+    }
+}
 @media screen and (min-width: 800px) {
     .sidebar-toggle{
-        top: 4.5rem;
+        /* top: 4.5rem;  */
         right: 7rem;
     }
 }
 
-.sidebar-toggle i{
-    color: var(--clr-sidebar);
-}
 .remove-data{
     z-index: 3;
     position: sticky;

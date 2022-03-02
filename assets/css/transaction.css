@@ -27,17 +27,24 @@
     top:-4px;
     box-shadow:0 4px 3px rgba(0, 0, 0, 0.24);
 }
+/* .transaction::before{
+    position: absolute;
+    content: '';
+    right: 3rem;
+
+    width: 2px;
+    height: 100%;
+    background-color: #666;
+} */
+
 .transaction-title, 
 .positive, 
 .negative {
-    width: 40%;
+    width: 80%;
     font-weight: 700;
     text-align: center;
-}
 
-.remove-transaction{
-    width: 10%;
-    color: var(--clr-remove--icon);
+    /* border: 1px solid black; */
 }
 .positive{
     color: var(--clr-amount-positive);
@@ -46,7 +53,17 @@
     color: var(--clr-amount-negative);
 }
 
-/* Transaction Notification */
+.remove-transaction{
+    width: 20%;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--clr-remove--icon);
+
+    /* background-color: lightgrey; */
+    /* border: 1px solid black; */
+}
+
+/* Transaction done Notification */
 .notification{
     z-index: 5;
     gap: 7px;
@@ -55,26 +72,27 @@
     width: 200px;
     padding: 1rem;
 
-    align-self: flex-end;
     position: absolute;
     top: 45%;
     right: 0px;
+    align-self: flex-end;
 
     transform: scaleX(0);
-    transform-origin: right;
-    
-    color: var(--clr-notification);
-    background-color: var(--bg-notification);
-    
-    border-radius: 5px;
-    border: 1px solid var(--border-notification);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transform-origin: right;   
 }
 .show-notification{
     right: 10px;
     transform: scaleX(1);
     transform-origin: right;
     transition: all 0.3s;
+}
+.notification-style{
+    color: var(--clr-notification);
+    background-color: var(--bg-notification);
+    
+    border-radius: 5px;
+    border: 1px solid var(--border-notification);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 @media screen and (min-width: 800px) {
