@@ -16,7 +16,7 @@
 .sidebar-toggle::before{
     z-index: 3;
     position: absolute;
-    content: '5';
+    content: attr(data-view);
     right: -10px;
 }
 .sidebar-toggle i{

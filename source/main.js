@@ -22,12 +22,6 @@ const checkIsEmpty = (arg) => {
 const updateLocalStorage = () =>{
     localStorage.setItem('transactions', JSON.stringify(transactions))
 }
-const removeTransaction = transactionID => {
-    transactions = transactions.filter(tr => tr.id !== transactionID);
-    pushTransactions();
-    updateLocalStorage();
-    btnRemoveDataPosition(transactions);
-}
 const invalidInput = (name, value) => {
     const inputName = document.querySelector('#nameTransaction')
     const inputValue = document.querySelector('#valueTransaction')
@@ -52,10 +46,7 @@ const addTransaction = transaction => {
     const template = `
         <p class="transaction-title">${transaction.name}</p>
         <p class="${isPositive}">R$  ${transaction.amount.toFixed(2)}</p>
-        <button role="button" aria-label="Remove transaction" 
-                onclick="removeTransaction(${transaction.id})" 
-                class="btn btn-hover remove-transaction"
-        >
+        <button role="button" aria-label="Remove transaction" class="btn btn-hover remove-transaction">
             <i class="fa fa-times"></i>
         </button>
         `
@@ -63,6 +54,8 @@ const addTransaction = transaction => {
     li.classList.add('transaction');
     li.classList.add('flex');
     li.innerHTML = template
+    // let transactionBtn = li.children[2]
+    // transactionBtn.addEventListener('click', removeTransaction);
 
     if(checkIsEmpty(transaction.name) || checkIsEmpty(transaction.amount) || isNaN(transaction.amount)){
         return ''
@@ -138,3 +131,11 @@ const btnRemoveDataPosition = localTransactions =>{
     }
 }
 btnRemoveDataPosition(transactions);
+
+
+function removeTransaction(transactionID) {
+    transactions = transactions.filter(tr => tr.id !== transactionID);
+    pushTransactions();
+    updateLocalStorage();
+    btnRemoveDataPosition(transactions);
+}

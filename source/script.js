@@ -14,4 +14,6 @@ closebtn.addEventListener('click', () =>{
     mainGrid.classList.toggle('grid-open');
 })
 
+let number = sidebarToggle.setAttribute('data-view', '1');
+
 
