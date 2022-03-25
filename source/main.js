@@ -1,52 +1,32 @@
-const transactionsList = document.querySelector('#transaction-list');
-const notification = document.querySelector('#notification');
+import { 
+    randomID,
+    checkIsEmpty,
+    btnRemoveDataPosition,
+    invalidInput,
+    removeAlert,
+    notifyTransaction
+} from "./methods.js";
 
-// Verify localStorage
+const transactionsList = document.querySelector('#transaction-list');
+// Get localStorage data
 const localStorageTransactions = JSON.parse(localStorage.getItem('transactions'))
 let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : []
 
-const notifyTransaction = () => {
-    notification.classList.add('show-notification');
-    setTimeout(()=>{
-        notification.classList.remove('show-notification');
-    }, 1200);
-}
-const randomID = () => {
-    return Math.floor(Math.random() * (1000 - 0 + 1)) + 0
-}
-const checkIsEmpty = (arg) => {
-    if(arg == '' || arg == null){
-        return true
-    }
-}
+
 const updateLocalStorage = () =>{
     localStorage.setItem('transactions', JSON.stringify(transactions))
 }
-const invalidInput = (name, value) => {
-    const inputName = document.querySelector('#nameTransaction')
-    const inputValue = document.querySelector('#valueTransaction')
 
-    const inputNameAlert = document.querySelector('#inputNameAlert')
-    const inputValueAlert = document.querySelector('#inputValueAlert')
-
-    if(checkIsEmpty(name)){
-        inputNameAlert.classList.add('show-inputAlert')
-        inputName.focus()
-    }else if(checkIsEmpty(value) || isNaN(value)){
-        inputValueAlert.classList.add('show-inputAlert')
-        inputValue.focus()
-    }
-}
-const removeAlert = () => {
-    inputNameAlert.classList.remove('show-inputAlert')
-    inputValueAlert.classList.remove('show-inputAlert')
-}
-const addTransaction = transaction => {
+// create a template for transactions
+const createLi = (transaction) => {
     const isPositive = transaction.amount > 0 ? 'positive' : 'negative'
     const template = `
         <p class="transaction-title">${transaction.name}</p>
         <p class="${isPositive}">R$  ${transaction.amount.toFixed(2)}</p>
-        <button role="button" aria-label="Remove transaction" class="btn btn-hover remove-transaction">
+        <button role="button" 
+            aria-label="Remove transaction" 
+            class="btn btn-hover remove-transaction"
+        >
             <i class="fa fa-times"></i>
         </button>
         `
@@ -54,15 +34,24 @@ const addTransaction = transaction => {
     li.classList.add('transaction');
     li.classList.add('flex');
     li.innerHTML = template
-    // let transactionBtn = li.children[2]
-    // transactionBtn.addEventListener('click', removeTransaction);
 
-    if(checkIsEmpty(transaction.name) || checkIsEmpty(transaction.amount) || isNaN(transaction.amount)){
-        return ''
-    }else{
-        transactionsList.prepend(li)
-    }
+    const button = li.children[2]
+    button.addEventListener('click', ()=>{
+        removeTransaction(transaction.id);
+    })
+
+    return li
 }
+
+// Remove individual transactions and update
+const removeTransaction = transactionID => {
+    transactions = transactions.filter(tr => tr.id !== transactionID);
+    pushTransactions();
+    updateLocalStorage();
+    btnRemoveDataPosition();
+}
+
+// Get all recipes and expenses and display
 const getBalance = () => {
     const recipeDisplay = document.querySelector('#recipeAmount');
     const expenseDisplay = document.querySelector('#expenseAmount');
@@ -78,31 +67,39 @@ const getBalance = () => {
     expenseDisplay.textContent = `R$ ${expense.toFixed(2)}`
     balanceDisplay.textContent = `R$ ${balance.toFixed(2)}`
 }
+
+// Create a li for each transaction and push into Ul
 const pushTransactions = () =>{
     transactionsList.innerHTML = ''
-    transactions.forEach(addTransaction)
+    transactions.map((transaction)=>{
+        transactionsList.prepend(createLi(transaction));
+    })
     getBalance()
 }
 pushTransactions()
 
-// Sidebar Transactions
+// Submit data on click
 const submit = document.querySelector('#btnSubmit');
-const nameValue = document.querySelector('#nameTransaction');
-const transactionValue = document.querySelector('#valueTransaction');
 
 submit.addEventListener('click', () => {
+    const nameValue = document.querySelector('#nameTransaction');
+    const transactionValue = document.querySelector('#valueTransaction');
     const valueWithoutComma = transactionValue.value.replace(',', '.');
+    
     const transaction = {id: randomID(), name: nameValue.value, amount: Number(valueWithoutComma)}
 
-    if(checkIsEmpty(nameValue.value) || checkIsEmpty(valueWithoutComma) || isNaN(valueWithoutComma)){
-        invalidInput(nameValue.value, valueWithoutComma)
-    }else{
+    if(checkIsEmpty(nameValue.value) || checkIsEmpty(valueWithoutComma) || isNaN(valueWithoutComma))
+    {
+        invalidInput(nameValue, transactionValue);
+    }
+    else
+    {
         transactions.push(transaction);
         pushTransactions();
         updateLocalStorage();
         
         removeAlert();
-        btnRemoveDataPosition(transactions);
+        btnRemoveDataPosition();
         notifyTransaction();
 
         nameValue.value = ''
@@ -111,31 +108,9 @@ submit.addEventListener('click', () => {
 
 })
 
-const resetData = () =>{
-    localStorage.removeItem('transactions');
-    location.reload();
-}
-
-// Remove all transactions icon
-const btnRemoveData = document.querySelector('#btnRemoveData');
-btnRemoveData.addEventListener('click', () => {
-    resetData();
-})
-const btnRemoveDataPosition = localTransactions =>{
-    if(localTransactions.length < 9){
-        btnRemoveData.classList.add('remove-data-initial');
-        btnRemoveData.classList.remove('remove-data');
-    }else{
-        btnRemoveData.classList.add('remove-data');
-        btnRemoveData.classList.remove('remove-data-initial');
-    }
-}
-btnRemoveDataPosition(transactions);
 
 
-function removeTransaction(transactionID) {
-    transactions = transactions.filter(tr => tr.id !== transactionID);
-    pushTransactions();
-    updateLocalStorage();
-    btnRemoveDataPosition(transactions);
-}
+
+
+
+
