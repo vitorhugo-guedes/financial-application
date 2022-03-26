@@ -28,6 +28,7 @@
     font-size: 0.85rem;
 
     border: none;
+    background-color: transparent;
     border-bottom: 2px solid rgb(108, 57, 124, 0.4);
 }
 .transaction-input:focus{

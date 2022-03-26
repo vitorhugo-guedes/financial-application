@@ -58,5 +58,5 @@ export const notifyTransaction = () => {
     notification.classList.add('show-notification');
     setTimeout(()=>{
         notification.classList.remove('show-notification');
-    }, 1200);
+    }, 1200); // 1200
 }

@@ -1,0 +1,33 @@
+:root{
+    /* Main related */
+    --bg-main: #f1f8f1;
+
+    --bg-sidebar: #53257a; /* #5B2A86 */
+    --clr-sidebar-header: #F7FFF7;
+
+    --bg-card-balance: #F7FFF7;
+    --clr-recipe: #008000;
+    --clr-expense: #A4161A;
+    --clr-balance: #6c397c;
+
+    --clr-input-alert: #A4161A;
+
+    /* Buttons and icons related */
+    --bg-btn-submit: #6c397c;
+    --bg-btn-submit--hover: #623370;
+    --borderbt-btn-submit: #562d63;
+
+    --clr-icon-sidebartoggle: #5B2A86; 
+
+    --clr-white--icon: #F7FFF7;
+
+    /* Transaction related */
+    --bg-transaction: #f1f8f1; /*#edf8ed*/
+
+    --clr-remove--icon: #A4161A;
+    --clr-amount-positive: #019601;
+    --clr-amount-negative: #9D0208;
+    
+    --bg-notification: #008000;
+    --clr-notification: #F7FFF7;
+}

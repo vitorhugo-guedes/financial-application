@@ -7,6 +7,7 @@
     <meta name="description" content="Controle financeiro para suas compras do dia a dia">
     <title>Controle Financeiro</title>
     <link rel="shortcut icon" href="/assets/favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/root.css">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/utilities.css">
     <link rel="stylesheet" href="/assets/css/buttons.css">
@@ -22,12 +23,21 @@
             
             <div class="sidebar-header flex">
                 <h1>Transações</h1>
-                <button role="button" aria-label="Close sidebar" id="closeBtn" class="btn"><i class="fas fa-times fa-2x"></i></button>
+
+                <button role="button" 
+                    aria-label="Close sidebar" 
+                    id="closeBtn" class="btn"
+                >
+                    <i class="fas fa-times fa-2x"></i>
+                </button>
             </div>
 
             <ul id="transaction-list" class="transaction-list flex-column"></ul>
 
-            <button role="button" aria-label="Remove all data" type="button" id="btnRemoveData" class="btn remove-data-initial btn-hover">
+            <button role="button" aria-label="Remove all data" 
+                type="button" 
+                id="btnRemoveData" class="btn remove-data-initial btn-hover"
+            >
                 <i class="fa fa-trash fa-2x"></i>
             </button>
 
@@ -36,13 +46,18 @@
         <!-- Centralized content -->
         <section class="main-content flex">
             
-            <button tabindex="4" role="button" aria-label="Toggle sidebar" type="button" id="sidebarToggle" class="btn sidebar-toggle btn-hover">
+            <!-- Open sidebar -->
+            <button tabindex="4" 
+                role="button" aria-label="Toggle sidebar" 
+                type="button" 
+                id="sidebarToggle" class="btn sidebar-toggle btn-hover"
+            >
                 <i class="fa fa-bars fa-2x"></i>
             </button>
             
             <section class="container-hero flex-column">
 
-                <!-- Mostrar saldo -->
+                <!-- Display balance to user -->
                 <div class="display-balance flex-column">
                     <div>
                         <h1>Saldo Atual</h1>
@@ -61,33 +76,43 @@
                     </div>
                 </div>
 
-                <!-- inserir transações -->
+                <!-- transaction inputs -->
                 <form class="form-control flex-column">
 
                     <legend>Adicionar Transação</legend>
-                    
+
                     <fieldset class="form-field">
                         <label>
-                            Nome <input tabindex="1" autocomplete="off" id="nameTransaction" class="transaction-input" type="text" placeholder="Compras do mês">
+                            Nome 
+                            <input tabindex="1" autocomplete="off" 
+                                id="nameTransaction" class="transaction-input" 
+                                type="text" maxlength="40"
+                                placeholder="Compras do Mês"
+                            >
                         </label>
-                        <span id="inputNameAlert" class="input-alert">Preencha o campo</span>
+                        <span id="inputNameAlert" class="input-alert">Preencha o campo corretamente</span>
 
                         <label>
-                            Valor <input tabindex="2" autocomplete="off" id="valueTransaction" class="transaction-input" type="text" placeholder="100,00" >
+                            Valor 
+                            <input tabindex="2" autocomplete="off"
+                                id="valueTransaction" class="transaction-input"
+                                type="text" maxlength="10"
+                                placeholder="-100,00" 
+                            >
                         </label>
-                        <span id="inputValueAlert" class="input-alert">Preencha o campo</span>
+                        <span id="inputValueAlert" class="input-alert">Preencha o campo corretamente</span>
                     </fieldset>
 
                     <button tabindex="3" id="btnSubmit" type="button" class="btn-submit btn-outline">Adicionar</button>
                 </form>
 
+                <!-- Transaction added notification -->
                 <div id="notification" class="notification notification-style flex">
                     <p>Transação concluída</p><i class="fa fa-check"></i>
                 </div>
 
             </section>
         </section>
-
 
     </main>
 

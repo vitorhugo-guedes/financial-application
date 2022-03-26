@@ -1,13 +1,4 @@
-:root{
-    --clr-remove--icon: #A4161A;
-    --clr-amount-positive: #019c01;
-    --clr-amount-negative: hsl(0, 70%, 50%);
-    
-    --clr-notification: #019c01;
-    --bg-notification: #F8F9FA;
-    --border-notification: #5fbd02;
-}
-
+/* Transaction */
 .transaction-list{
     list-style: none;
     gap: 1rem;
@@ -15,13 +6,15 @@
 .transaction{
     position: relative;
     top: 0;
-    padding: 0.75rem 0.5rem;
+
     max-width: 100%;
+    padding: 0.75rem 0.5rem;
+    
     border-radius: 5px;
 
-    background-color: #F8F9FA;
     transition: all ease-in 0.2s;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: var(--bg-transaction);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 4px;
 }
 .transaction:hover{
     top:-4px;
@@ -43,8 +36,6 @@
     width: 80%;
     font-weight: 700;
     text-align: center;
-
-    /* border: 1px solid black; */
 }
 .positive{
     color: var(--clr-amount-positive);
@@ -52,18 +43,14 @@
 .negative{
     color: var(--clr-amount-negative);
 }
-
 .remove-transaction{
     width: 20%;
     text-align: center;
     font-size: 1rem;
     color: var(--clr-remove--icon);
-
-    /* background-color: lightgrey; */
-    /* border: 1px solid black; */
 }
 
-/* Transaction done Notification */
+/* Transaction success Notification */
 .notification{
     z-index: 5;
     gap: 7px;
@@ -91,10 +78,8 @@
     background-color: var(--bg-notification);
     
     border-radius: 5px;
-    border: 1px solid var(--border-notification);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 4px 8px;
 }
-
 @media screen and (min-width: 800px) {
     .notification{
         top: 60%;
