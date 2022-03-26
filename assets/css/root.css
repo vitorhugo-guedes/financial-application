@@ -1,6 +1,6 @@
 :root{
     /* Main related */
-    --bg-main: #f1f8f1;
+    --bg-main: #f7f3f3; /* #f1f8f1*/
 
     --bg-sidebar: #53257a; /* #5B2A86 */
     --clr-sidebar-header: #F7FFF7;
@@ -22,7 +22,7 @@
     --clr-white--icon: #F7FFF7;
 
     /* Transaction related */
-    --bg-transaction: #f1f8f1; /*#edf8ed*/
+    --bg-transaction: #F7FFF7; /*#edf8ed*/
 
     --clr-remove--icon: #A4161A;
     --clr-amount-positive: #019601;
