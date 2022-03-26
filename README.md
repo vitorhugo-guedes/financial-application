@@ -5,7 +5,7 @@
 <br>
 
 ### :pencil: Quer usar ou me ajudar a incluir features? 
-<h4>Acesse o site e teste por <a href="https://controlefinanceirojs.vercel.app/">https://controlefinanceirojs.vercel.app/</a></h4>
+<h4>Acesse o site e teste por <a target="_blank" href="https://controlefinanceirojs.vercel.app/">https://controlefinanceirojs.vercel.app/</a></h4>
 
 <br>
 
