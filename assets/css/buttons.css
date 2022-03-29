@@ -6,14 +6,24 @@
     right: 3rem;
     color: var(--clr-icon-sidebartoggle);
 }
-/* Notifications */
+/* unseen transactions notification */
 .sidebar-toggle::before{
     z-index: 3;
+    cursor: default;
     position: absolute;
     content: attr(data-view);
     right: -10px;
+    top: -10px;
 
+    color: var(--clr-white--icon);
+    font-size: 12px;
+    font-family: 'Lato', serif;
+
+    padding: 2px 5px;
+    border-radius: 100%;
+    background-color: var(--bg-sidebartoggle--before);
 }
+
 @media screen and (max-width: 600px) {
     .sidebar-toggle{
         top: 4rem;
