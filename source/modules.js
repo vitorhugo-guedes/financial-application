@@ -60,3 +60,11 @@ export const notifyTransaction = () => {
         notification.classList.remove('show-notification');
     }, 1200); // 1200
 }
+
+// Create unseen transactions in localStorage and update in interface
+export const unSeenNotificationUpdate = counter => {
+    const sidebarToggleElement = document.querySelector("#sidebarToggle");
+
+    localStorage.setItem('unSeen', JSON.stringify(counter));
+    sidebarToggleElement.setAttribute('data-view', `${counter}`);
+}

@@ -4,19 +4,19 @@ import {
     btnRemoveDataPosition,
     invalidInput,
     removeAlert,
-    notifyTransaction
-} from "./methods.js";
+    notifyTransaction,
+    unSeenNotificationUpdate
+} from "./modules.js";
 
 const transactionsList = document.querySelector('#transaction-list');
 // Get localStorage data
 const localStorageTransactions = JSON.parse(localStorage.getItem('transactions'))
 let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : []
 
-
+// Update transactions on localStorage
 const updateLocalStorage = () =>{
     localStorage.setItem('transactions', JSON.stringify(transactions))
 }
-
 // create a template for transactions
 const createLi = (transaction) => {
     const isPositive = transaction.amount > 0 ? 'positive' : 'negative'
@@ -42,7 +42,6 @@ const createLi = (transaction) => {
 
     return li
 }
-
 // Remove individual transactions and update
 const removeTransaction = transactionID => {
     transactions = transactions.filter(tr => tr.id !== transactionID);
@@ -50,7 +49,6 @@ const removeTransaction = transactionID => {
     updateLocalStorage();
     btnRemoveDataPosition();
 }
-
 // Get all recipes and expenses and display
 const getBalance = () => {
     const recipeDisplay = document.querySelector('#recipeAmount');
@@ -67,7 +65,6 @@ const getBalance = () => {
     expenseDisplay.textContent = `R$ ${expense.toFixed(2)}`
     balanceDisplay.textContent = `R$ ${balance.toFixed(2)}`
 }
-
 // Create a li for each transaction and push into Ul
 const pushTransactions = () =>{
     transactionsList.innerHTML = ''
@@ -78,9 +75,12 @@ const pushTransactions = () =>{
 }
 pushTransactions()
 
+// Update unseen notification in interface
+let unSeenNotificationCounter = localStorage.getItem('unSeen') !== null ? JSON.parse(localStorage.getItem('unSeen')) : 0
+unSeenNotificationUpdate(unSeenNotificationCounter);
+
 // Submit data on click
 const submit = document.querySelector('#btnSubmit');
-
 submit.addEventListener('click', () => {
     const nameValue = document.querySelector('#nameTransaction');
     const transactionValue = document.querySelector('#valueTransaction');
@@ -88,24 +88,29 @@ submit.addEventListener('click', () => {
     
     const transaction = {id: randomID(), name: nameValue.value, amount: Number(valueWithoutComma)}
 
+    // Testing
     if(checkIsEmpty(nameValue.value) || checkIsEmpty(valueWithoutComma) || isNaN(valueWithoutComma))
     {
         invalidInput(nameValue, transactionValue);
-    }
-    else
-    {
-        transactions.push(transaction);
-        pushTransactions();
-        updateLocalStorage();
-        
-        removeAlert();
-        btnRemoveDataPosition();
-        notifyTransaction();
-
-        nameValue.value = ''
-        transactionValue.value = ''
+        return
     }
 
+    // Transactions related
+    transactions.push(transaction);
+    pushTransactions();
+    updateLocalStorage();
+    
+    // Interface related
+    removeAlert();
+    btnRemoveDataPosition();
+    notifyTransaction();
+    
+    nameValue.value = ''
+    transactionValue.value = ''
+
+    // unseen notification update
+    unSeenNotificationCounter++
+    unSeenNotificationUpdate(unSeenNotificationCounter);
 })
 
 
