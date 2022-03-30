@@ -23,7 +23,9 @@
     border-radius: 100%;
     background-color: var(--bg-sidebartoggle--before);
 }
-
+.sidebar-toggle-before::before{
+    display: none;
+}
 @media screen and (max-width: 600px) {
     .sidebar-toggle{
         top: 4rem;

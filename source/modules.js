@@ -67,4 +67,9 @@ export const unSeenNotificationUpdate = counter => {
 
     localStorage.setItem('unSeen', JSON.stringify(counter));
     sidebarToggleElement.setAttribute('data-view', `${counter}`);
+    if(counter == 0){
+        sidebarToggleElement.classList.add('sidebar-toggle-before');
+    }else{
+        sidebarToggleElement.classList.remove('sidebar-toggle-before');
+    }
 }
