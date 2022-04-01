@@ -23,6 +23,11 @@
             
             <div class="sidebar-header flex">
                 <h1>Transações</h1>
+                
+                <div id="transactionDeleted" class="notification notification-deleted">
+                    <p>Excluído com sucesso</p>
+                    <span class="timer"></span>
+                </div>
 
                 <button role="button" 
                     aria-label="Close sidebar" 
@@ -107,7 +112,7 @@
                 </form>
 
                 <!-- Transaction added notification -->
-                <div id="notification" class="notification notification-style flex">
+                <div id="notification" class="notification notification-success flex">
                     <p>Transação concluída</p><i class="fa fa-check"></i>
                 </div>
 

@@ -60,6 +60,7 @@ main{
     transition: all 0.5s ease-in-out;
 }
 .sidebar-header{
+    position: relative;
     color: var(--clr-sidebar-header);
     font-weight: normal;
 }

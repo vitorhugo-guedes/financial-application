@@ -54,12 +54,26 @@ export const removeAlert = () => {
 
 // Display notification
 const notification = document.querySelector('#notification');
-export const notifyTransaction = () => {
+const notificationDeleted = document.querySelector('#transactionDeleted')
+
+export const notifyTransactionSuccess = () => {
     notification.classList.add('show-notification');
     setTimeout(()=>{
         notification.classList.remove('show-notification');
     }, 1200); // 1200
 }
+export const notifyTransactionDeleted = ()=>{
+    const timer = document.querySelector('.timer');
+    
+    notificationDeleted.classList.add('show-notification');
+    timer.style.animation = 'widthOver 1s linear'
+    
+    setTimeout(()=>{
+        timer.style.animation = '';
+        notificationDeleted.classList.remove('show-notification');
+    }, 1200) // 
+}
+
 
 // Create unseen transactions in localStorage and update in interface
 export const unSeenNotificationUpdate = counter => {
@@ -67,6 +81,7 @@ export const unSeenNotificationUpdate = counter => {
 
     localStorage.setItem('unSeen', JSON.stringify(counter));
     sidebarToggleElement.setAttribute('data-view', `${counter}`);
+
     if(counter == 0){
         sidebarToggleElement.classList.add('sidebar-toggle-before');
     }else{

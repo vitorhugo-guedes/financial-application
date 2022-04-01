@@ -4,7 +4,8 @@ import {
     btnRemoveDataPosition,
     invalidInput,
     removeAlert,
-    notifyTransaction,
+    notifyTransactionSuccess,
+    notifyTransactionDeleted,
     unSeenNotificationUpdate
 } from "./modules.js";
 
@@ -38,6 +39,7 @@ const createLi = (transaction) => {
     const button = li.children[2]
     button.addEventListener('click', ()=>{
         removeTransaction(transaction.id);
+        notifyTransactionDeleted();
     })
 
     return li
@@ -103,13 +105,14 @@ submit.addEventListener('click', () => {
     // Interface related
     removeAlert();
     btnRemoveDataPosition();
-    notifyTransaction();
+    notifyTransactionSuccess();
     
     nameValue.value = ''
     transactionValue.value = ''
 
     // unseen notification update
     unSeenNotificationCounter++
+    console.log(unSeenNotificationCounter)
     unSeenNotificationUpdate(unSeenNotificationCounter);
 })
 

@@ -59,32 +59,74 @@
     width: 200px;
     padding: 1rem;
 
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 4px 8px;
+}
+.notification-success{
     position: absolute;
     top: 45%;
     right: 0px;
     align-self: flex-end;
 
-    transform: scaleX(0);
-    transform-origin: right;   
-}
-.show-notification{
-    right: 10px;
-    transform: scaleX(1);
-    transform-origin: right;
-    transition: all 0.3s;
-}
-.notification-style{
     color: var(--clr-notification);
-    background-color: var(--bg-notification);
+    background-color: var(--bg-notification--success);
     
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 4px 8px;
+    transform: scaleX(0);
+    transform-origin: right;
 }
+
+.notification-deleted{
+    position: absolute;
+    left: 80px;
+    top: 1px;
+
+    height: 50px;
+    text-align: center;
+
+    transform: scaleY(0);
+    transform-origin: top;
+
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    
+    color: #333;
+    background-color: #fff;
+}
+
+@keyframes widthOver {
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+.timer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    height: 2px;
+    width: 100%;
+
+    background: red;
+}
+
 @media screen and (min-width: 800px) {
-    .notification{
+    .notification-success{
         top: 60%;
     }
     .show-notification{
         right: 120px;
     }
+}
+.show-notification{
+    right: 10px;
+    transform: scaleX(1);
+    transform: scaleY(1);
+    transition: all 0.3s;
 }
